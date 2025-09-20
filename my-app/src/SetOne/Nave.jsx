@@ -627,7 +627,7 @@ const Nave = () => {
     justifyContent: 'center',
     margin: '8px auto',
     // width: { xs: '60%', sm: '60%', md: '70%', lg: '70%' },
-    width: 'fight-contain',
+    width: 'fit-content',
   };
 
   return (

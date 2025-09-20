@@ -1,3 +1,39 @@
+// import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+// import { Box } from '@mui/material';
+// import Nave from './SetOne/Nave';
+// import Home from './SetOne/Home';
+// import About from './SetOne/About';
+// import Project from './SetOne/Project';
+// import Contact from './SetOne/Contact';
+// import Skills from './SetOne/Skills';
+// import { ThemeProvider } from './SetOne/ThemeContext';
+
+// function App() {
+//   return (
+//     <>
+//       <ThemeProvider>
+//         <Router>
+//           <Box>
+//             <Nave />
+//             <Routes>
+//               <Route path="/" element={<Home />} />
+//               <Route path="/about" element={<About />} />
+//               <Route path="/project" element={<Project />} />
+//               <Route path="/contact" element={<Contact />} />
+//               <Route path="/skills" element={<Skills />} />
+//             </Routes>
+//           </Box>
+//         </Router>
+//       </ThemeProvider>
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+
+
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Nave from './SetOne/Nave';
@@ -10,30 +46,24 @@ import { ThemeProvider } from './SetOne/ThemeContext';
 
 function App() {
   return (
-    <>
-      <ThemeProvider>
-        <Router>
-          <Box>
-            <Nave />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/project" element={<Project />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/skills" element={<Skills />} />
-            </Routes>
-          </Box>
-        </Router>
-      </ThemeProvider>
-    </>
+    <ThemeProvider>
+      <Router>
+        <Box>
+          <Nave />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/project" element={<Project />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/skills" element={<Skills />} />
+          </Routes>
+        </Box>
+      </Router>
+    </ThemeProvider>
   );
 }
 
 export default App;
-
-
-
-
 
 
 
