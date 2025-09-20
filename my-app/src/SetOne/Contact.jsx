@@ -44,7 +44,7 @@ const Contact = () => {
 
           // justifyContent: { lg: 'left', md: 'left', sm: 'center', xs: 'center' } 
           }}>
-            {/* <Forms /> */}
+            <Forms />
           </Grid>
 
 
