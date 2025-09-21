@@ -44,6 +44,7 @@ import Contact from './SetOne/Contact';
 import Skills from './SetOne/Skills';
 import { ThemeProvider } from './SetOne/ThemeContext';
 import ResumeViewer from './SetOne/ResumeViewer';
+import ViewerProjects from './SetOne/ViewerProjects';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/resume" element={<ResumeViewer />} /> 
+            <Route path="/projects" element={<ViewerProjects />} /> 
 
           </Routes>
         </Box>

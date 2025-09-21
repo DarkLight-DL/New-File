@@ -193,7 +193,7 @@ const Footer = () => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          height: {xs:'100px',sm:'150px'},
+          height: {xs:'120px',sm:'150px'},
           width: '100%',
           position: 'relative',
         }}

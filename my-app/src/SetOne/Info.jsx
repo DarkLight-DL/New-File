@@ -140,7 +140,7 @@
 
 import React, { useState, useContext } from 'react';
 import { Box, Typography, Link as MUILink, Dialog, IconButton } from '@mui/material';
-import { HashLink as Link } from 'react-router-hash-link'; // Smooth scroll
+import { HashLink as Link } from 'react-router-hash-link';
 import CloseIcon from '@mui/icons-material/Close';
 import { ReactComponent as File } from '../Assets/file.svg';
 import { ReactComponent as Person } from '../Assets/person.svg';
