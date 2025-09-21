@@ -138,11 +138,9 @@
 
 
 
-
-
-
 import React, { useState, useContext } from 'react';
 import { Box, Typography, Link as MUILink, Dialog, IconButton } from '@mui/material';
+import { HashLink as Link } from 'react-router-hash-link'; // Smooth scroll
 import CloseIcon from '@mui/icons-material/Close';
 import { ReactComponent as File } from '../Assets/file.svg';
 import { ReactComponent as Person } from '../Assets/person.svg';
@@ -243,9 +241,11 @@ const Info = () => {
           <Box component={File} sx={{ height: '20px', width: '20px', filter: 'invert(0)', transition: 'filter 0.3s ease' }} />
         </Box>
 
-        {/* Contact Button */}
+        {/* Link to Contact (smooth scroll to #contact) */}
         <MUILink
-          href="#contact"
+          component={Link}
+          smooth
+          to="/#contact"
           underline="none"
           sx={{
             color: 'white',
@@ -260,7 +260,7 @@ const Info = () => {
             display: 'inline-flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '5px',
+            gap: '1px',
             '&:hover': {
               color: 'black',
               border: '1px solid rgb(56, 91, 148)',
