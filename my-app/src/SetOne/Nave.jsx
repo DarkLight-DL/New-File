@@ -620,7 +620,7 @@ const Nave = () => {
     color: modeColor ? '#bbbbbb' : '#555555',   // secondary text colors from palette
     backdropFilter: 'blur(2px)',
     WebkitBackdropFilter: 'blur(10px)',
-    padding: '6px 16px',
+    padding: '6px 10px',
     borderRadius: '30px',
     display: 'flex',
     alignItems: 'center',
@@ -835,7 +835,7 @@ const Nave = () => {
           </Box>
 
           {/* Dark/Light Mode Toggle */}
-          <Box sx={{ ml: 'auto', width: {xs:'50px',sm:'0px',md:'100px',lg:'100px'}, justifyItems: 'flex-end'}}>
+          <Box sx={{ ml: 'auto', width: {xs:'50px',sm:'30px',md:'100px',lg:'100px'}, justifyItems: 'flex-end'}}>
             
             <Box
               onClick={handleColor}
