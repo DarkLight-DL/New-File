@@ -22,7 +22,7 @@ const Contact = () => {
       </Box>
 
 
-        <Grid container rowGap={0} pb='10vh'>
+        <Grid container rowGap={1} mb='50px' >
 
           <Grid item lg={5} md={6} sm={12} xs={12}
             sx={{

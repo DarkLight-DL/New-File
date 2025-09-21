@@ -428,11 +428,11 @@ const datas = [
     link: 'https://darklight-dl.github.io/Bloom/',
   },
   {
-    name: 'Shop(DOM)',
+    name: 'Shop(Json)',
     text: 'Shopping web side built using DOM, with dynamic interactions. File via a JSON Full responsiveness.',
     comp_libs: [Html, Css, Js, Git],
     img: [Cart],
-    link: 'https://darklight-dl.github.io/Shop/',
+    link: 'https://darklight-dl.github.io/Cart/',
   },
   {
     name: 'Html',

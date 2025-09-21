@@ -172,8 +172,8 @@ const Footer = () => {
       ? '-5px -5px 15px rgba(255, 255, 255, 0.08)'
       : '-5px -5px 15px rgba(247, 247, 247, 0.12)',
     position: 'absolute',
-    top: 50,
-    right: 20,
+    top:10,
+    right: 10,
     color: modeColor ? '#000000ff' : '#ffffffff',
     '&:hover': {
       transform: 'scale(1.10)',
@@ -188,11 +188,12 @@ const Footer = () => {
     <>
       <Box
         sx={{
+                bgcolor: modeColor ? '#00000036' : 'rgba(255, 255, 255, 0.13)',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '250px',
+          height: {xs:'100px',sm:'150px'},
           width: '100%',
           position: 'relative',
         }}

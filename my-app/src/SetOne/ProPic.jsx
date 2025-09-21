@@ -36,7 +36,8 @@ const ProPic = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: { xs: 'auto', md: '60vh' },
+        // height: { xs: 'auto', md: '60vh' },
+        height:'100%',
         width: '100%',
         py: { xs: 2, sm: 3, md: 0 },
       }}

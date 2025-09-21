@@ -1,260 +1,19 @@
-import React, { useContext, useState } from 'react';
-import { Box, TextField, Button, Typography, Tooltip, Snackbar, Alert } from '@mui/material';
-import send from '../Assets/send1.png';
-import ThemeContext from './ThemeContext';
-
-const Forms = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [status, setStatus] = useState(null); // null | 'success' | 'error'
-  const [loading, setLoading] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const {modeColor}=useContext(ThemeContext)
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatus(null);
-
-    try {
-      const response = await fetch('https://formspree.io/f/xjkenlej', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' }); // reset form
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
-
-    setSnackbarOpen(true); // show snackbar alert
-    setLoading(false);
-  };
-
-  const handleSnackbarClose = (event, reason) => {
-    if (reason === 'clickaway') return;
-    setSnackbarOpen(false);
-  };
-
-  return (
-    <Box
-      height={{ lg: '100%', md: '450px', sm: 'auto', xs: '100%' }}
-      width={{ lg: '80%', md: '400px', sm: '60%', xs: '80%' }}
-      sx={{
-        bgcolor: 'rgba(255, 255, 255, 0.26)',
-        p: 1,
-        px: 3,
-        borderRadius: 2,
-        boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.52)',
-        '&:hover': {
-          boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.69)',
-        },
-      }}
-    >
-      <Typography variant="h5" align="center" mt="25px" mb="20px" gutterBottom fontWeight="900">
-        Send a Message
-      </Typography>
-
-      <form onSubmit={handleSubmit}>
-        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap={2}>
-          {/* Honeypot field to prevent spam */}
-          <input type="text" name="_gotcha" style={{ display: 'none' }} />
-
-          <TextField
-            color="black"
-            label="Your Name"
-            variant="outlined"
-            fullWidth
-            required
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          <TextField
-            color="black"
-            label="Your Email"
-            variant="outlined"
-            fullWidth
-            required
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <TextField
-            color="black"
-            label="Your Message"
-            variant="outlined"
-            fullWidth
-            required
-            multiline
-            rows={4}
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-          />
-
-          <Tooltip title="Send" arrow>
-            <Button
-              variant="contained"
-              type="submit"
-              disabled={loading}
-              sx={{
-                mt: '10px',
-                px: '20px',
-                borderRadius: '10px',
-                bgcolor: 'rgb(0, 0, 2)',
-                fontWeight: '700',
-                boxShadow: '-5px -5px 15px rgba(247, 247, 247, 0.27)',
-                '&:hover': {
-                  transform: 'scale(1.020)',
-                  boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.9)',
-                },
-              }}
-            >
-              {loading ? 'Sending...' : 'Submit'}
-              <img style={{ marginLeft: '10px', height: '20px' }} src={send} alt="send" />
-            </Button>
-          </Tooltip>
-        </Box>
-      </form>
-
-      {/* Snackbar Alert */}
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={400}
-        onClose={handleSnackbarClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-
-      >
-        {/* <Alert
-          onClose={handleSnackbarClose}
-          severity={status === 'success' ? 'success' : 'error'}
-          sx={{
-            color: 'black',
-            bgcolor: 'rgba(255, 255, 255, 0.2)',
-            borderRadius: '16px',
-            boxShadow: '0 2px 5px rgba(0, 0, 0, 1)',
-            backdropFilter: 'blur(2px)',
-            WebkitBackdropFilter: 'blur(2px)',
-            border: '1px solid rgba(255, 255, 255, 0.18)',
-          }}        >
-           {status === 'success' ? (
-             <>
-               Message sent successfully. <br />
-               We'll be in touch soon.
-             </>
-           ) : (
-             <>
-               Oops! Something went wrong. <br />
-               Please try again.
-             </>
-           )}
-         </Alert> */}
-
-
-
-
-
-                 <Alert
-          onClose={handleSnackbarClose}
-          severity={status === 'success' ? 'success' : 'error'}
-          sx={{
-            color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black',
-            bgcolor: modeColor ?  'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.2)',
-            borderRadius: '16px',
-            boxShadow: modeColor ? '0 2px 5px rgba(255, 255, 255, 0.8)':'0 2px 5px rgba(0, 0, 0, 1)'  ,
-            backdropFilter: 'blur(2px)',
-            WebkitBackdropFilter: 'blur(2px)',
-            border: modeColor ?  '1px solid rgba(255,255,255,0.3)' :'1px solid rgba(255, 255, 255, 0.18)',
-          }}
-        >
-          {status === 'success' ? (
-            <>
-              Message sent successfully. <br />
-              We'll be in touch soon.
-            </>
-          ) : (
-            <>
-              Oops! Something went wrong. <br />
-              Please try again.
-            </>
-          )}
-        </Alert>
-      </Snackbar>
-    </Box>
-  );
-};
-
-export default Forms;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useContext } from 'react';
+// import React, { useContext, useState } from 'react';
 // import { Box, TextField, Button, Typography, Tooltip, Snackbar, Alert } from '@mui/material';
 // import send from '../Assets/send1.png';
-// import ThemeContext from '../SetOne/ThemeContext';  
+// import ThemeContext from './ThemeContext';
 
 // const Forms = () => {
-//   const { modeColor } = useContext(ThemeContext); 
-
 //   const [formData, setFormData] = useState({
 //     name: '',
 //     email: '',
 //     message: '',
 //   });
 
-//   const [status, setStatus] = useState(null);
+//   const [status, setStatus] = useState(null); // null | 'success' | 'error'
 //   const [loading, setLoading] = useState(false);
 //   const [snackbarOpen, setSnackbarOpen] = useState(false);
-
+//   const {modeColor}=useContext(ThemeContext)
 //   const handleChange = (e) => {
 //     const { name, value } = e.target;
 //     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -266,7 +25,7 @@ export default Forms;
 //     setStatus(null);
 
 //     try {
-//       const response = await fetch('https://*************', {
+//       const response = await fetch('https://formspree.io/f/xjkenlej', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -277,7 +36,7 @@ export default Forms;
 
 //       if (response.ok) {
 //         setStatus('success');
-//         setFormData({ name: '', email: '', message: '' });
+//         setFormData({ name: '', email: '', message: '' }); // reset form
 //       } else {
 //         setStatus('error');
 //       }
@@ -285,7 +44,7 @@ export default Forms;
 //       setStatus('error');
 //     }
 
-//     setSnackbarOpen(true);
+//     setSnackbarOpen(true); // show snackbar alert
 //     setLoading(false);
 //   };
 
@@ -299,36 +58,27 @@ export default Forms;
 //       height={{ lg: '100%', md: '450px', sm: 'auto', xs: '100%' }}
 //       width={{ lg: '80%', md: '400px', sm: '60%', xs: '80%' }}
 //       sx={{
-//         bgcolor:'rgba(255, 255, 255, 0.26)',
+//         bgcolor: 'rgba(255, 255, 255, 0.26)',
 //         p: 1,
 //         px: 3,
 //         borderRadius: 2,
-//         boxShadow: modeColor
-//         ? '10px 10px 20px rgba(0, 0, 0, 0.2)'
-//           : '10px 10px 10px rgba(0, 0, 0, 0.52)',
+//         boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.52)',
 //         '&:hover': {
-//           boxShadow:'0px 0px 50px rgba(0, 0, 0, 0.69)',
+//           boxShadow: '0px 0px 50px rgba(0, 0, 0, 0.69)',
 //         },
 //       }}
 //     >
-//       <Typography
-//         variant="h5"
-//         align="center"
-//         mt="20px"
-//         mb="30px"
-//         gutterBottom
-//         fontWeight="900"
-//         sx={{ color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' }}
-//       >
+//       <Typography variant="h5" align="center" mt="25px" mb="20px" gutterBottom fontWeight="900">
 //         Send a Message
 //       </Typography>
 
 //       <form onSubmit={handleSubmit}>
 //         <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap={2}>
-//           {/* Honeypot field */}
+//           {/* Honeypot field to prevent spam */}
 //           <input type="text" name="_gotcha" style={{ display: 'none' }} />
 
 //           <TextField
+//             color="black"
 //             label="Your Name"
 //             variant="outlined"
 //             fullWidth
@@ -337,18 +87,9 @@ export default Forms;
 //             name="name"
 //             value={formData.name}
 //             onChange={handleChange}
-//             InputLabelProps={{ style: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' } }}
-//             sx={{
-//               input: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
-//               '& .MuiOutlinedInput-root': {
-//                 '& fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//                 '&:hover fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//                 '&.Mui-focused fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
-//               },
-//             }}
 //           />
 //           <TextField
-//             color="primary"
+//             color="black"
 //             label="Your Email"
 //             variant="outlined"
 //             fullWidth
@@ -357,18 +98,9 @@ export default Forms;
 //             name="email"
 //             value={formData.email}
 //             onChange={handleChange}
-//             InputLabelProps={{ style: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' } }}
-//             sx={{
-//               input: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//               '& .MuiOutlinedInput-root': {
-//                 '& fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//                 '&:hover fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//                 '&.Mui-focused fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//               },
-//             }}
 //           />
 //           <TextField
-//             color="primary"
+//             color="black"
 //             label="Your Message"
 //             variant="outlined"
 //             fullWidth
@@ -378,15 +110,6 @@ export default Forms;
 //             name="message"
 //             value={formData.message}
 //             onChange={handleChange}
-//             InputLabelProps={{ style: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  } }}
-//             sx={{
-//               textarea: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
-//               '& .MuiOutlinedInput-root': {
-//                 '& fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
-//                 '&:hover fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
-//                 '&.Mui-focused fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
-//               },
-//             }}
 //           />
 
 //           <Tooltip title="Send" arrow>
@@ -395,20 +118,15 @@ export default Forms;
 //               type="submit"
 //               disabled={loading}
 //               sx={{
-//                 mt: '20px',
+//                 mt: '10px',
 //                 px: '20px',
 //                 borderRadius: '10px',
-//                 bgcolor:'rgb(0, 0, 2)' ,
-//                 color:'rgba(243, 243, 243, 1)',
+//                 bgcolor: 'rgb(0, 0, 2)',
 //                 fontWeight: '700',
-//                 boxShadow: modeColor
-//                 ? 'inset 3px 3px 5px rgba(150, 150, 160, 0.5)'
-//                   : '-5px -5px 15px rgba(247, 247, 247, 0.27)',
+//                 boxShadow: '-5px -5px 15px rgba(247, 247, 247, 0.27)',
 //                 '&:hover': {
 //                   transform: 'scale(1.020)',
-//                   boxShadow: modeColor
-//                   ? '5px 5px 15px rgba(255, 255, 255, 0.9)'
-//                     : '5px 5px 15px rgba(0, 0, 0, 0.9)',
+//                   boxShadow: '5px 5px 15px rgba(0, 0, 0, 0.9)',
 //                 },
 //               }}
 //             >
@@ -422,11 +140,41 @@ export default Forms;
 //       {/* Snackbar Alert */}
 //       <Snackbar
 //         open={snackbarOpen}
-//         autoHideDuration={4000}
+//         autoHideDuration={400}
 //         onClose={handleSnackbarClose}
 //         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+
 //       >
-//         <Alert
+//         {/* <Alert
+//           onClose={handleSnackbarClose}
+//           severity={status === 'success' ? 'success' : 'error'}
+//           sx={{
+//             color: 'black',
+//             bgcolor: 'rgba(255, 255, 255, 0.2)',
+//             borderRadius: '16px',
+//             boxShadow: '0 2px 5px rgba(0, 0, 0, 1)',
+//             backdropFilter: 'blur(2px)',
+//             WebkitBackdropFilter: 'blur(2px)',
+//             border: '1px solid rgba(255, 255, 255, 0.18)',
+//           }}        >
+//            {status === 'success' ? (
+//              <>
+//                Message sent successfully. <br />
+//                We'll be in touch soon.
+//              </>
+//            ) : (
+//              <>
+//                Oops! Something went wrong. <br />
+//                Please try again.
+//              </>
+//            )}
+//          </Alert> */}
+
+
+
+
+
+//                  <Alert
 //           onClose={handleSnackbarClose}
 //           severity={status === 'success' ? 'success' : 'error'}
 //           sx={{
@@ -457,6 +205,258 @@ export default Forms;
 // };
 
 // export default Forms;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useContext } from 'react';
+import { Box, TextField, Button, Typography, Tooltip, Snackbar, Alert } from '@mui/material';
+import send from '../Assets/send1.png';
+import ThemeContext from '../SetOne/ThemeContext';  
+
+const Forms = () => {
+  const { modeColor } = useContext(ThemeContext); 
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xjkenlej', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+
+    setSnackbarOpen(true);
+    setLoading(false);
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setSnackbarOpen(false);
+  };
+
+  return (
+    <Box
+      height={{ lg: '98%', md: '450px', sm: 'auto', xs: '99%' }}
+      width={{ lg: '80%', md: '400px', sm: '60%', xs: '80%' }}
+      sx={{
+        bgcolor:'rgba(255, 255, 255, 0.26)',
+        p: 1,
+        px: 3,
+        borderRadius: 2,
+        boxShadow: modeColor
+        ? '10px 10px 20px rgba(0, 0, 0, 0.2)'
+          : '10px 10px 10px rgba(0, 0, 0, 0.52)',
+        '&:hover': {
+          boxShadow:'0px 0px 50px rgba(0, 0, 0, 0.69)',
+        },
+      }}
+    >
+      <Typography
+        variant="h5"
+        align="center"
+        mt="15px"
+        mb="20px"
+        gutterBottom
+        fontWeight="900"
+        sx={{ color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' }}
+      >
+        Send a Message
+      </Typography>
+
+      <form onSubmit={handleSubmit}>
+        <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap={2}>
+          {/* Honeypot field */}
+          <input type="text" name="_gotcha" style={{ display: 'none' }} />
+
+          <TextField
+            label="Your Name"
+            variant="outlined"
+            fullWidth
+            required
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            InputLabelProps={{ style: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' } }}
+            sx={{
+              input: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+                '&:hover fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+                '&.Mui-focused fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
+              },
+            }}
+          />
+          <TextField
+            color="primary"
+            label="Your Email"
+            variant="outlined"
+            fullWidth
+            required
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            InputLabelProps={{ style: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' } }}
+            sx={{
+              input: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+                '&:hover fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+                '&.Mui-focused fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+              },
+            }}
+          />
+          <TextField
+            color="primary"
+            label="Your Message"
+            variant="outlined"
+            fullWidth
+            required
+            multiline
+            rows={4}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            InputLabelProps={{ style: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  } }}
+            sx={{
+              textarea: { color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black' },
+                '&:hover fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
+                '&.Mui-focused fieldset': { borderColor: modeColor ? 'rgba(243, 243, 243, 1)' : 'black'  },
+              },
+            }}
+          />
+
+          <Tooltip title="Send" arrow>
+            <Button
+              variant="contained"
+              type="submit"
+              disabled={loading}
+              sx={{
+                mt: '10px',
+                px: '20px',
+                borderRadius: '10px',
+                bgcolor:'rgb(0, 0, 2)' ,
+                color:'rgba(243, 243, 243, 1)',
+                fontWeight: '700',
+                boxShadow: modeColor
+                ? 'inset 3px 3px 5px rgba(150, 150, 160, 0.5)'
+                  : '-5px -5px 15px rgba(247, 247, 247, 0.27)',
+                '&:hover': {
+                  transform: 'scale(1.020)',
+                  boxShadow: modeColor
+                  ? '5px 5px 15px rgba(255, 255, 255, 0.9)'
+                    : '5px 5px 15px rgba(0, 0, 0, 0.9)',
+                },
+              }}
+            >
+              {loading ? 'Sending...' : 'Submit'}
+              <img style={{ marginLeft: '10px', height: '20px' }} src={send} alt="send" />
+            </Button>
+          </Tooltip>
+        </Box>
+      </form>
+
+      {/* Snackbar Alert */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={4000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={handleSnackbarClose}
+          severity={status === 'success' ? 'success' : 'error'}
+          sx={{
+            color: modeColor ? 'rgba(243, 243, 243, 1)' : 'black',
+            bgcolor: modeColor ?  'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.2)',
+            borderRadius: '16px',
+            boxShadow: modeColor ? '0 2px 5px rgba(255, 255, 255, 0.8)':'0 2px 5px rgba(0, 0, 0, 1)'  ,
+            backdropFilter: 'blur(2px)',
+            WebkitBackdropFilter: 'blur(2px)',
+            border: modeColor ?  '1px solid rgba(255,255,255,0.3)' :'1px solid rgba(255, 255, 255, 0.18)',
+          }}
+        >
+          {status === 'success' ? (
+            <>
+              Message sent successfully. <br />
+              We'll be in touch soon.
+            </>
+          ) : (
+            <>
+              Oops! Something went wrong. <br />
+              Please try again.
+            </>
+          )}
+        </Alert>
+      </Snackbar>
+    </Box>
+  );
+};
+
+export default Forms;
 
 
 

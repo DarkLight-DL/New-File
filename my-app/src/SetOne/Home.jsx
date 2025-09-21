@@ -39,10 +39,10 @@ const Home = () => {
       <section id="skills"><Skills /></section>
       <section id="contact"><Contact /></section>
 
+  </Container>
       <Footer />
       <ScrollTop />
       
-  </Container>
 
     </Box>
   );

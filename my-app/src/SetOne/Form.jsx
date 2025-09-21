@@ -48,9 +48,9 @@ const Form = () => {
   return (
     <Box
       sx={{
-        p: 4,
-        height: { lg: '360px', md: '350px', sm: 'auto', xs: '70%' },
-        width: { lg: '300px', md: '300px', sm: '50%', xs: '60%' },
+        p: 3,
+        height: { lg: '360px', md: '350px', sm: 'auto', xs: '80%' },
+        width: { lg: '300px', md: '280px', sm: '50%', xs: '80%' },
         background: 'linear-gradient(135deg, #4b6cb7 0%, #182848 100%)',
         borderRadius: '16px',
         color: 'white',
@@ -90,7 +90,7 @@ const Form = () => {
             sx={{
               p: 1,
               gap: 1,
-              width: 'auto',
+              width: '90%',
               display: 'flex',
               alignItems: 'center',
               borderRadius: '8px',
@@ -145,12 +145,13 @@ const Form = () => {
       <Box sx={{ width: '100%' }}>
         <Typography
           sx={{
-            mt: '30px',
+            mt: '10px',
+            color:'rgba(239, 238, 239, 1)',
             borderBottom: '2px solid rgba(255,255,255,0.3)',
             pb: 1,
           }}
         >
-          Connect with Me
+          Follow On
         </Typography>
 
         <Box
