@@ -413,6 +413,9 @@ const Forms = () => {
               }}
             >
               {loading ? 'Sending...' : 'Submit'}
+              <Box component={'img'}>
+                
+              </Box>
               <img style={{ marginLeft: '10px', height: '20px' }} src={send} alt="send" />
             </Button>
           </Tooltip>

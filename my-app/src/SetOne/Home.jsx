@@ -28,8 +28,8 @@ const Home = () => {
     <Box sx={{
   minHeight: '100vh',
   background: modeColor
-    ? 'linear-gradient(343deg, rgba(85,52,143,1) 50%, rgba(85,52,143,0.36) 100%)'  // deep purple gradient for dark mode
-    : 'linear-gradient(343deg, rgba(167,142,204,1) 50%, rgba(167,142,204,0.36) 100%)' // soft lavender gradient for light mode
+    ? 'linear-gradient(0deg, rgba(85,52,143,1) 50%, rgba(85,52,143,0.36) 100%)'  // deep purple gradient for dark mode
+    : 'linear-gradient(0deg, rgba(167,142,204,1) 50%, rgba(167,142,204,0.36) 100%)' // soft lavender gradient for light mode
 }}>
   <Container>
 

@@ -34,6 +34,7 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import Info from './Info';
 import Profile from './Profile';
+import TextSlider from './TextSlider';
 
 const Hero = () => {
     return (
@@ -57,6 +58,8 @@ const Hero = () => {
 
                 <Profile />
             </Grid>
+
+            <TextSlider/>
 
         </Grid>
     );

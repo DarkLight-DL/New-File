@@ -172,7 +172,7 @@ const Info = () => {
           <Typography
             variant="h4"
             sx={{
-              color: modeColor ? 'black' : 'white',
+              color: modeColor ? 'white' : 'white',
               fontWeight: '900',
               fontSize: { lg: '3.2rem', md: '3rem', sm: '3rem', xs: '2rem' },
             }}
@@ -182,7 +182,7 @@ const Info = () => {
           <Typography
             variant="h4"
             sx={{
-              color: modeColor ? 'white' : 'black',
+              color: modeColor ? 'black' : 'black',
               fontWeight: '900',
               fontSize: { lg: '3.2rem', md: '3rem', sm: '3rem', xs: '2rem' },
             }}

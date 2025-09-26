@@ -835,7 +835,7 @@ const Nave = () => {
           </Box>
 
           {/* Dark/Light Mode Toggle */}
-          <Box sx={{ ml: 'auto', width: {xs:'50px',sm:'30px',md:'100px',lg:'100px'}, justifyItems: 'flex-end'}}>
+          <Box sx={{ ml: 'auto', width: {xs:'50px',sm:'30px',md:'110px',lg:'110px'}, justifyItems: 'flex-end'}}>
             
             <Box
               onClick={handleColor}
