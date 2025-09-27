@@ -25,21 +25,22 @@ const contactMethods = [
     tooltip: 'Email us',
     Icon: Gmail,
     href: 'mailto:a.asikahamedm@gmail.com',
-    display: 'a.asikahamedm@gmail.com',
+    TextShow : 'a.asikahamedm@gmail.com',
   },
   {
     type: 'Phone',
     tooltip: 'Call us',
     Icon: Phone,
     href: 'tel:+919500302681',
-    display: '+91 9500302681',
+    TextShow: '+91 9500302681',
   },
   {
     type: 'Location',
-    tooltip: 'Our Location',
+    tooltip: 'Location',
     Icon: Location,
     href: 'https://www.google.com/maps/place/Kanniyakumari',
-    display: 'Kanniyakumari, IN',
+    // href: 'https://www.google.com/maps/place/Kanniyakumari,thuckalay',
+    TextShow: 'Kanniyakumari, IN',
   },
 ];
 
@@ -47,9 +48,9 @@ const Form = () => {
   return (
     <Box
       sx={{
-        p: 4,
-        height: { lg: '360px', md: '350px', sm: 'auto', xs: '70%' },
-        width: { lg: '300px', md: '300px', sm: '50%', xs: '60%' },
+        p: 3,
+        height: { lg: '360px', md: '350px', sm: 'auto', xs: '80%' },
+        width: { lg: '300px', md: '280px', sm: '50%', xs: '80%' },
         background: 'linear-gradient(135deg, #4b6cb7 0%, #182848 100%)',
         borderRadius: '16px',
         color: 'white',
@@ -83,13 +84,13 @@ const Form = () => {
       </Typography>
 
       {/* Contact Methods */}
-      {contactMethods.map(({ type, tooltip, Icon, href, display }) => (
+      {contactMethods.map(({ type, tooltip, Icon, href, TextShow }) => (
         <Tooltip title={tooltip} placement="right" key={type}>
           <Box
             sx={{
               p: 1,
               gap: 1,
-              width: 'auto',
+              width: '90%',
               display: 'flex',
               alignItems: 'center',
               borderRadius: '8px',
@@ -114,7 +115,7 @@ const Form = () => {
               <Typography
 
                 sx={{
-                  fontSize: { xs: '8px', sm: '15px' },
+                  fontSize: { xs: '8px', sm: '10px' },
                 }}
               >
                 {type}
@@ -129,11 +130,11 @@ const Form = () => {
                   color: '#aaddff',
                   textDecoration: 'underline',
                 },
-                  fontSize: { xs: '10px', sm: '16px' },
+                  fontSize: { xs: '10px', sm: '12px' },
                   fontWeight: 500,
                 }}
               >
-                {display}
+                {TextShow}
               </Typography>
             </Box>
           </Box>
@@ -144,12 +145,13 @@ const Form = () => {
       <Box sx={{ width: '100%' }}>
         <Typography
           sx={{
-            mt: '30px',
+            mt: '10px',
+            color:'rgba(239, 238, 239, 1)',
             borderBottom: '2px solid rgba(255,255,255,0.3)',
             pb: 1,
           }}
         >
-          Connect with Me
+          Follow On
         </Typography>
 
         <Box

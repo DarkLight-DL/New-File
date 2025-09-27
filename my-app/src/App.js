@@ -1,12 +1,12 @@
 // import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 // import { Box } from '@mui/material';
-// import Nave from './SetOne/Nave';
-// import Home from './SetOne/Home';
-// import About from './SetOne/About';
-// import Project from './SetOne/Project';
-// import Contact from './SetOne/Contact';
-// import Skills from './SetOne/Skills';
-// import { ThemeProvider } from './SetOne/ThemeContext';
+// import Nave from './Component/Nave';
+// import Home from './Component/Home';
+// import About from './Component/About';
+// import Project from './Component/Project';
+// import Contact from './Component/Contact';
+// import Skills from './Component/Skills';
+// import { ThemeProvider } from './Component/ThemeContext';
 
 // function App() {
 //   return (
@@ -36,15 +36,15 @@
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
-import Nave from './SetOne/Nave';
-import Home from './SetOne/Home';
-import About from './SetOne/About';
-import Project from './SetOne/Project';
-import Contact from './SetOne/Contact';
-import Skills from './SetOne/Skills';
-import { ThemeProvider } from './SetOne/ThemeContext';
-import ResumeViewer from './SetOne/ResumeViewer';
-import ViewerProjects from './SetOne/ViewerProjects';
+import Nave from './Component/Nave';
+import Home from './Component/Home';
+import About from './Component/About';
+import Project from './Component/Project';
+import Contact from './Component/Contact';
+import Skills from './Component/Skills';
+import { ThemeProvider } from './Component/ThemeContext';
+import ResumeViewer from './Component/ResumeViewer';
+import ViewerProjects from './Component/ViewerProjects';
 
 function App() {
   return (

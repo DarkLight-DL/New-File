@@ -34,13 +34,12 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import Info from './Info';
 import Profile from './Profile';
-import TextSlider from './TextSlider';
 
 const Hero = () => {
     return (
-        <Grid container sx={{ py: 0,pt:{xs:'60px',sm:'100px',md:'150px',lg:'150px'}}}>
+        <Grid container sx={{ py: 0, pt: { xs: '60px', sm: '60px', md: '80px', lg: '120px', xl:'150' } }}>
 
-            <Grid item xs={12} sm={12} md={7} lg={7} sx={{ justifyItems:'center',alignContent:'center', textAlign: 'center', my: '10px', zIndex: '1', fontSize: { lg: '5rem', md: '3rem', sm: '3rem', xs: '2rem' } }}>
+            <Grid item xs={12} sm={12} md={7} lg={7} sx={{ textAlign: 'center', my: '10px', zIndex: '1', fontSize: { lg: '5rem', md: '3rem', sm: '3rem', xs: '2rem' } }}>
 
                 <Info />
             </Grid>
@@ -58,8 +57,6 @@ const Hero = () => {
 
                 <Profile />
             </Grid>
-
-            <TextSlider/>
 
         </Grid>
     );

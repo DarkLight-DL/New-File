@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
+
+import Linkus from './Linkus';
 import Aboutpic from './Aboutpic';
 import AboutText from './AboutText';
-import Linkus from './Linkus';
 
 const About = () => {
   return (

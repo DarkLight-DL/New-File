@@ -12,7 +12,7 @@ import { ReactComponent as Git } from '../Assets/github2.svg';
 import { ReactComponent as Mongodb } from '../Assets/MongoDB.svg';
 import { ReactComponent as Express } from '../Assets/express.svg';
 
-  const iconStyle = { height: 35, width: 52 };
+  const iconStyle = { height: 40, width: 52 };
 
 
 const datas = [
@@ -134,13 +134,13 @@ const Skills1 = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: 40,
+                height: 42,
                 width: 45,
                 objectFit:'contain',
                 p:'1px',
                 backgroundColor:'transparent',
                 borderRadius:'10px',
-                boxShadow:'0px 0px 10px rgba(10, 10, 10, 0.71)'
+                boxShadow:'0px 0px 10px rgb(10,10,10)'
               }}
             >
               {web.svg}

@@ -119,7 +119,6 @@ const Skills = () => {
       <Grid
         container
         sx={{
-          mb:'50px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -129,11 +128,11 @@ const Skills = () => {
           <ProPic />
         </Grid>
 
-        <Grid item xs={12} md={8} >
+        <Grid item xs={12} md={8}>
           <Skills1 />
         </Grid>
       </Grid>
-      {/* <Box height='20vh' /> */}
+      <Box height='20vh' />
 
     </>
   )

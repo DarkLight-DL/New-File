@@ -22,18 +22,14 @@ const Contact = () => {
       </Box>
 
 
-        <Grid container rowGap={0} pb='10vh'>
+        <Grid container rowGap={1} mb='50px' >
 
           <Grid item lg={5} md={6} sm={12} xs={12}
             sx={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: {
-                xs: 'center',
-                sm: 'center',
-                md: 'flex-end',
-                lg: 'flex-end',
-              },
+              justifyContent:'center',
+              // justifyContent: {xs: 'center',sm: 'center',md: 'flex-end',lg: 'flex-end',},
             }}
           >
 
@@ -44,7 +40,9 @@ const Contact = () => {
           sx={{ 
           display: 'flex', 
           alignItems: 'center', 
-          justifyContent: { lg: 'left', md: 'left', sm: 'center', xs: 'center' } 
+          justifyContent:'center' ,
+
+          // justifyContent: { lg: 'left', md: 'left', sm: 'center', xs: 'center' } 
           }}>
             <Forms />
           </Grid>

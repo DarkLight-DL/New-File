@@ -2,7 +2,7 @@ import React from 'react'
 // import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { Box, Container, Typography, } from '@mui/material'
+import { Box, Typography, } from '@mui/material'
 import Data from './Data'
 
 
@@ -37,13 +37,11 @@ const Project = () => {
     <>
 
       <Box sx={{ pt: { xs: '40px', sm: '40px', md: '40px', lg: '45px' } }}>
-        <Container>
 
           <Typography
             variant="h2"
             sx={{
-                      bgcolor:'blue',
-
+              bgcolor:'blue',
               background: 'rgb(0,0,0)',
               backgroundClip: 'text',
               color: 'transparent',
@@ -63,12 +61,12 @@ const Project = () => {
               The backend is integrated using Axios for JSON data handling and user-friendly responsive UI design.
             </Typography>
           </Box>
-        </Container>
 
         <Data />
-      </Box>
 
 
+
+   {/* more option */}
 
       <Box sx={{ mx: '20px', height: '50px', bgcolor: 'rgb(235, 226, 226)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* <StyledLink  to="/contact">
@@ -102,8 +100,9 @@ const Project = () => {
         </Link>
 
       </Box>
-      <Box height='50px'>
+
       </Box>
+
 
     </>
   )

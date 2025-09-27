@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
-// import TextAnimation from './TextAnimation';
 
 const Text = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [triggerAnimation, setTriggerAnimation] = useState(false);
 
-  // const texts = ['Frontend Developer', 'Backend Developer', 'React Js Developer','Mernstack Developer'];
   const texts = ['Frontend Developer', 'Backend Developer', 'React Js Developer', 'MERN Stack Developer'];
 
   useEffect(() => {
@@ -25,25 +23,23 @@ const Text = () => {
   const textStyle = {
     textAlign: 'center',
     alignContent: 'center',
-    fontSize: { md: '2.7rem', sm: '1.8rem', xs: '1.6rem' },
+    fontSize: { md: '2rem', sm: '2rem', xs: '1.3rem' },
     fontWeight: '600',
     color: 'rgb(88, 57, 35)',
-    marginRight: '10px',
-    width: '100%',
-    borderRadius:'solid'
+    borderRadius: 'solid'
 
   }
 
   const textStyle1 = {
-    fontSize: { md: '2.7rem', sm: '1.8rem', xs: '1.6rem' },
+    fontSize: { md: '2rem', sm: '2rem', xs: '1.3rem' },
     fontWeight: '600',
     textAlign: 'center',
-    mt: { xs: '5px' },
     height: '50px',
-    width: '100%',
+    // width: {xs:'fight-content',sm:'50%',md:'65%',lg:'70%',xl:'60%'},
+    // width: 'fight-content',
     display: 'flex',
     alignItems: 'center',
-    justifyContent:'center',
+    // justifyContent: 'center',
     background: 'linear-gradient(180deg, rgba(0, 0, 0, 1) 30%,rgb(56, 91, 148)  48%, rgba(0, 0, 0, 1) 65%)',
     backgroundClip: 'text',
     color: 'transparent',
@@ -55,24 +51,22 @@ const Text = () => {
 
   return (
     <>
-      <Box>
-      </Box> 
+
 
       <Box sx={{
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
-        flexDirection:'column',
+        flexDirection: 'column',
       }}>
-        <Typography sx={textStyle}>i'm <span style={{
-          color:'black',
-          textShadow:'0px 0px 5px rgba(0, 249, 245, 1)',
-        }}
-        >
-          Asik ahamed</span>
-          {/* <span style={{justifyItems:'center',alignContent:'center'}}> <TextAnimation/></span>  */}
+
+
+        <Box sx={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center',alignItems:'center', gap:1,ml:{sm:'0px',md:'auto',lg:'auto'} }}>
+          <Typography sx={textStyle}>
+            i'm
           </Typography>
-        <Typography sx={textStyle1}>{texts[currentIndex]}</Typography>
+          <Typography sx={textStyle1}> {texts[currentIndex]}</Typography>
+        </Box>
       </Box>
     </>
   );

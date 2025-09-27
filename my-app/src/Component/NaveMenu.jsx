@@ -1,205 +1,100 @@
-// import React from 'react'
-// import { useLocation, Link } from 'react-router-dom';
-
-// import HomeIcon from '@mui/icons-material/Home';
-// import InfoIcon from '@mui/icons-material/Info';
-// import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';import CodeIcon from '@mui/icons-material/Code';
-// import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-
-
-
-
-
-// import CloseIcon from '@mui/icons-material/Close';
-
-// import HomeIcon from '@mui/icons-material/Home';
-// import InfoIcon from '@mui/icons-material/Info';
-// import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
-// import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
-
-// import { Box, Drawer, Stack, Typography } from '@mui/material';
-
-// import styled from 'styled-components';
-
-
-// const StyledDrawerButton = styled(Link).withConfig({
-//   shouldForwardProp: (prop) => prop !== 'active',
-// })`  display: flex;
-//   align-items: center;
-//   padding: 10px 16px;
-//   text-decoration: none;
-//   border-radius: 10px;
-//   font-weight: ${(props) => (props.active ? '600' : '400')};
-//   color: ${(props) => (props.active ? 'rgb(2, 63, 154)' : 'black')};
-
-//   &:hover {
-//     color: rgb(2, 63, 154);
-
-//     svg {
-//       color: rgb(2, 63, 154);
-//     }
-//   }
-
-//   svg {
-//     margin-right: 10px;
-//     color: inherit;
-//   }
-// `;
-// const NaveMenu = ( {toggleDrawer,open}) => {
-//     const location = useLocation();
-//   return (
-//     <>
-//       <Drawer
-//         anchor="right"
-//         open={open}
-//         onClose={() => toggleDrawer(false)}
-//         PaperProps={{
-//           sx: {
-//             backgroundColor: 'rgba(219, 216, 216, 1)',
-//             boxShadow: 'none'
-//           }
-//         }}
-//       >
-//         <Box
-//           sx={{ width: 185 }}
-//           role="presentation"
-//           onClick={() => toggleDrawer(false)}
-//           onKeyDown={() => toggleDrawer(false)}
-//         >
-//           <Box display="flex" justifyContent="center" alignItems="center">
-//             <CloseIcon
-//               sx={{ flexGrow: 1, height: '30px', cursor: 'pointer' }}
-//             />
-//             <Typography
-//               variant="h4"
-//               m="20px"
-//               textAlign="center"
-//               sx={{ flexGrow: 1, fontFamily: 'fantasy' }}
-//             >
-//               Menu
-//             </Typography>
-//           </Box>
-
-//           <Stack spacing={1.5} mt={2} pl={1}>
-//             <StyledDrawerButton to="/" active={location.pathname === '/'}>
-//               <HomeIcon />
-//               Home
-//             </StyledDrawerButton>
-
-//             <StyledDrawerButton to="/about" active={location.pathname === '/about'}>
-//               <InfoIcon />
-//               About
-//             </StyledDrawerButton>
-
-//             <StyledDrawerButton to="/project" active={location.pathname === '/project'}>
-//               <ViewCarouselIcon />
-//               Project
-//             </StyledDrawerButton>
-
-//             <StyledDrawerButton to="/skills" active={location.pathname === '/skills'}>
-//               <CalendarViewDayIcon />
-//               Skills
-//             </StyledDrawerButton>
-
-//             <StyledDrawerButton to="/contact" active={location.pathname === '/contact'}>
-//               <CalendarViewDayIcon />
-//               Contact Me
-//             </StyledDrawerButton>
-//           </Stack>
-//         </Box>
-//       </Drawer>
-
-      
-//     </>
-//   )
-// }
-
-// export default NaveMenu
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
-
-import { Box, Drawer, Stack, Typography, IconButton } from '@mui/material';
-
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+import {Box,Drawer,Stack,} from '@mui/material';
 
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
-import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';import CodeIcon from '@mui/icons-material/Code';
+import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
+import CodeIcon from '@mui/icons-material/Code';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
+import ThemeContext from '../Component/ThemeContext';
 
-// Styled components
-const StyledDrawerButton = styled(Link).withConfig({
-  shouldForwardProp: (prop) => prop !== 'active',
-})`
-  display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: ${(props) => (props.active ? '600' : '400')};
-  color: ${(props) => (props.active ? '#023f9a' : '#333')};
-  background-color: ${(props) => (props.active ? 'rgba(2, 63, 154, 0.1)' : 'transparent')};
-  border-left: ${(props) => (props.active ? '4px solid #023f9a' : '4px solid transparent')};
-  text-decoration: none;
-  transition: all 0.3s ease;
+const StyledDrawerButton = styled(Link, {
+  shouldForwardProp: (prop) => prop !== 'active' && prop !== 'modeColor',})(({ active, modeColor }) => {
 
-  &:hover {
-    background-color: rgba(2, 63, 154, 0.08);
-    color: #023f9a;
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '5px 8px',
+    fontWeight: active ? '600' : '500',
+    color: active ? modeColor ? '#000000ff' : '#ffffffff' : modeColor ? '#ffffffff' : '#1a1a1a',
+    position: 'relative',
+    textDecoration: 'none',
+    textAlign: 'center',
+    fontSize: '16px',
+    borderRadius: '8px',
+    transition: 'all 0.3s ease',
 
-    svg {
-      color: #023f9a;
-    }
-  }
+    '& svg': {
+      marginRight: '10px',
+      fontSize: '22px',
+      color: 'inherit',
+    },
 
-  svg {
-    margin-right: 12px;
-    font-size: 22px;
-    color: inherit;
-  }
-`;
+    '&::after': {
+      content: '""',
+      zIndex: -1,
+      position: 'absolute',
+      bottom: '0px',
+      left: 0,
+      height: '100%',
+      width: active ? '120%' : '0',
+      borderRadius: '10px',
+      backgroundColor: active ? modeColor ? '#66aaff' : '#0056d2' : 'transparent',
+      transition: 'width 0.5s ease-in-out',
+    },
+
+    '&:hover': {
+      '&::after': {
+        backgroundColor: modeColor ? '#66aaff' : '#0056d2',
+        width: '120%',
+      },
+    },
+  };
+});
 
 const NaveMenu = ({ toggleDrawer, open }) => {
   const location = useLocation();
+  const { modeColor } = useContext(ThemeContext);
+
+  const isActiveHash = (hash) =>
+    location.pathname === '/' &&
+    (location.hash === hash || (!location.hash && hash === '#home'));
 
   return (
     <Drawer
-      anchor="right"
+      anchor="left"
       open={open}
       onClose={() => toggleDrawer(false)}
+      ModalProps={{
+        BackdropProps: {
+          sx: {
+            backgroundColor: 'transparent',
+            backdropFilter: 'none',
+            WebkitBackdropFilter: 'none',
+          },
+        },
+      }}
       PaperProps={{
         sx: {
-          background: 'linear-gradient(to bottom, #f0f0f0, #e0e0e0)',
-          boxShadow: 'none',
-          width: 240,
+          position: 'absolute',
+          top: '60px',
+          left: '20px',
+              backgroundColor: modeColor
+      ? 'rgba(0, 0, 0, 1)'    // dark semi-transparent background for dark mode
+      : 'rgba(106, 123, 205, 0.81)', // soft lavender transparent for light mode
+    color: modeColor ? '#000000ff' : '#ffffffff',   // secondary text colors from palette
+    backdropFilter: 'blur(3px)',
+    WebkitBackdropFilter: 'blur(10px)',
+          boxShadow: '0px 4px 20px rgba(0,0,0,0.2)',
+          height: 'fit-content',
+          width: 'fit-content',
+          m: 0,
+          px: 1,
+          borderRadius: '10px',
         },
       }}
     >
@@ -207,60 +102,39 @@ const NaveMenu = ({ toggleDrawer, open }) => {
         role="presentation"
         onClick={() => toggleDrawer(false)}
         onKeyDown={() => toggleDrawer(false)}
-        sx={{ height: '100%', padding: '16px' }}
+        sx={{
+          height: '100%',
+          pl:1,
+          pr:5,
+          py:1,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
       >
-        {/* Header */}
-        <Box display="flex" alignItems="center" mb={3}>
-          <Typography
-            variant="h5"
-            sx={{
-              flexGrow: 1,
-              fontFamily: 'fantasy',
-              color: '#000000ff',
-              fontWeight: 400,
-            }}
-          >
-            Menu
-          </Typography>
-          <IconButton onClick={() => toggleDrawer(false)}>
-<CloseIcon
-  sx={{
-    fontSize: 28,
-    color: 'black',
-    cursor: 'pointer',
-    '&:hover': {
-      color: '#023f9a',
-    },
-  }}
-/>
-          </IconButton>
-        </Box>
-
-        {/* Menu Items */}
         <Stack spacing={1}>
-          <StyledDrawerButton to="/" active={location.pathname === '/'}>
+          <StyledDrawerButton to="/#home" active={isActiveHash('#home')} modeColor={modeColor}>
             <HomeIcon />
             Home
           </StyledDrawerButton>
 
-          <StyledDrawerButton to="/about" active={location.pathname === '/about'}>
+          <StyledDrawerButton to="/#about" active={isActiveHash('#about')} modeColor={modeColor}>
             <InfoIcon />
             About
           </StyledDrawerButton>
 
-          <StyledDrawerButton to="/project" active={location.pathname === '/project'}>
+          <StyledDrawerButton to="/#project" active={isActiveHash('#project')} modeColor={modeColor}>
             <QueuePlayNextIcon />
             Project
           </StyledDrawerButton>
 
-          <StyledDrawerButton to="/skills" active={location.pathname === '/skills'}>
+          <StyledDrawerButton to="/#skills" active={isActiveHash('#skills')} modeColor={modeColor}>
             <CodeIcon />
             Skills
           </StyledDrawerButton>
 
-          <StyledDrawerButton to="/contact" active={location.pathname === '/contact'}>
+          <StyledDrawerButton to="/#contact" active={isActiveHash('#contact')} modeColor={modeColor}>
             <PermContactCalendarIcon />
-            Contact Me
+            Contact
           </StyledDrawerButton>
         </Stack>
       </Box>

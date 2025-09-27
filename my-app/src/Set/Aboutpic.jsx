@@ -10,8 +10,7 @@
 //         display: 'flex',
 //         justifyContent: 'center',
 //         alignItems: 'center',
-//         // height: { xs: 'auto', md: '60vh' },
-//         height:'100%',
+//         height: { xs: 'auto', md: '60vh' },
 //         width: '100%',
 //         py: { xs: 2, sm: 3, md: 0 },
 //       }}
@@ -22,8 +21,14 @@
 //           src={pic}
 //           alt="Frontend developer profile picture"
 //           sx={{
-//             aspectRatio: '5 / 5',
-//             height: 'auto',
+//              aspectRatio: '5 / 5',
+//             height: {
+//               xs: '250px',
+//               sm: '300px',
+//               md: '300px',
+//               lg: '50vh',
+//               xl: '40vh',
+//             },
 //             width: '100%',
 //             maxWidth: {
 //               xs: '250px',
@@ -53,23 +58,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Box } from '@mui/material';
 import pic from '../Assets/pic.jpg';
 
 const Aboutpic = () => {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <Box
       component="section"
@@ -77,7 +70,7 @@ const Aboutpic = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+        height: { xs: 'auto', md: '60vh' },
         width: '100%',
         py: { xs: 2, sm: 3, md: 0 },
       }}
@@ -87,8 +80,6 @@ const Aboutpic = () => {
           component="img"
           src={pic}
           alt="Frontend developer profile picture"
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
           sx={{
             aspectRatio: '5 / 5',
             height: 'auto',
@@ -103,8 +94,6 @@ const Aboutpic = () => {
             borderRadius: '5%',
             display: 'block',
             mx: 'auto',
-            opacity: loaded ? 1 : 0,
-            transition: 'opacity 1s ease-in-out',
           }}
         />
       </Box>
