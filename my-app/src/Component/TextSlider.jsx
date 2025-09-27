@@ -146,7 +146,7 @@ const TextSlider = () => {
                   textShadow: modeColor ? '3px 10px 10px black' : '3px 5px 10px rgba(203, 193, 193, 1)',
                   color: index % 2 === 0 ? modeColor ? 'white' : '#000000ff' : '#ffd700',
                   fontSize: {
-                    xs: index % 2 === 0 ? 10 : 25,
+                    xs: index % 2 === 0 ? 15 : 25,
                     sm: index % 2 === 0 ? 16 : 28,
                     md: index % 2 === 0 ? 18 : 35,
                     lg: index % 2 === 0 ? 18 : 40,
