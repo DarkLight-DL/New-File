@@ -402,13 +402,13 @@ const Forms = () => {
                 color:'rgba(243, 243, 243, 1)',
                 fontWeight: '700',
                 boxShadow: modeColor
-                ? 'inset 3px 3px 5px rgba(150, 150, 160, 0.5)'
-                  : '-5px -5px 15px rgba(247, 247, 247, 0.27)',
+                ? ' 2px 5px 5px rgba(238, 238, 248, 0.63)'
+                  : ' 5px 5px 10px rgba(23, 22, 22, 1)',
                 '&:hover': {
                   transform: 'scale(1.020)',
                   boxShadow: modeColor
-                  ? '5px 5px 15px rgba(255, 255, 255, 0.9)'
-                    : '5px 5px 15px rgba(0, 0, 0, 0.9)',
+                  ? '2px 5px 15px rgba(255, 255, 255, 0.9)'
+                    : '2px 5px 15px rgba(0, 0, 0, 0.9)',
                 },
               }}
             >

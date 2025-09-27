@@ -7,20 +7,11 @@ import Contact from './Contact';
 import Skills from './Skills';
 import Footer from './Footer';
 import Hero from './Hero';
-import ScrollTop from './ScrollTop';
+import ScrollBar from './ScrollBar';
 import ThemeContext from './ThemeContext';
+import ScrollTop from './ScrollTop';
 
 const Home = () => {
-  // const location = useLocation();
-
-  // useEffect(() => {
-  //   if (location.hash) {
-  //     const Progess = document.querySelector(location.hash);
-  //     if (Progess) Progess.scrollIntoView({ behavior: 'smooth' });
-  //   } else {
-  //     window.scrollTo({ top: 0, behavior: 'smooth' });
-  //   }
-  // }, [location]);
 
   const { modeColor } = useContext(ThemeContext);
   return (
@@ -41,6 +32,7 @@ const Home = () => {
 
   </Container>
       <Footer />
+      <ScrollBar />
       <ScrollTop />
       
 

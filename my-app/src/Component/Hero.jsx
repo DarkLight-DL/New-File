@@ -38,7 +38,7 @@ import TextSlider from './TextSlider';
 
 const Hero = () => {
     return (
-        <Grid container sx={{ py: 0,pt:{xs:'60px',sm:'100px',md:'150px',lg:'150px'}}}>
+        <Grid container sx={{ py: 0,pt:{xs:'60px',sm:'100px',md:'130px',lg:'130px'}}}>
 
             <Grid item xs={12} sm={12} md={7} lg={7} sx={{ justifyItems:'center',alignContent:'center', textAlign: 'center', my: '10px', zIndex: '1', fontSize: { lg: '5rem', md: '3rem', sm: '3rem', xs: '2rem' } }}>
 

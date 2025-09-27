@@ -1,61 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
+import React, { useContext, useMemo, useEffect, useState } from 'react';
+import { Box, Button } from '@mui/material';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import ThemeContext from '../Component/ThemeContext';
 
 const ScrollTop = () => {
-  const [scrollPercent, setScrollPercent] = useState(0);
+  const { modeColor } = useContext(ThemeContext);
 
+  const [showButton, setShowButton] = useState(false);
+
+  const handleScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  // Show button after scrolling 100px
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (scrollTop / docHeight) * 100;
-      setScrollPercent(scrolled);
+    const handleScrollEvent = () => {
+      setShowButton(window.scrollY > 800);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScrollEvent);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('scroll', handleScrollEvent);
+    };
   }, []);
+
+  const scrollButtonStyles = useMemo(() => ({
+    m: 0,
+    p: 1,
+    minWidth: '0px',
+    borderRadius: '50px',
+    bgcolor: modeColor ? '#ffffffff' : 'rgb(0, 0, 2)',
+    fontWeight: '700',
+    position: 'fixed',
+    bottom: 50,
+    right: 20,
+    color: modeColor ? '#000000ff' : '#ffffffff',
+    boxShadow: modeColor
+      ? '5px 5px 10px rgba(255, 255, 255, 0.54)'
+      : '5px 5px 10px rgba(0, 0, 0, 0.66)',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      transform: 'scale(1.10)',
+      bgcolor: modeColor ? '#ffffffff' : 'rgba(0, 0, 0, 1)',
+      boxShadow: modeColor
+        ? '5px 5px 20px rgba(255, 255, 255, 1)'
+        : '5px 5px 20px rgba(0, 0, 0, 1)',
+    },
+  }), [modeColor]);
 
   return (
     <>
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: `${scrollPercent}%`,
-          height: '5px',
-          backgroundColor: '#FF6B00',
-          zIndex: 21,
-          overflow: 'hidden',
-          transition: 'width 0.2s ease-out',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: '100%',
-            width: '100%', 
-            background: `linear-gradient(
-              90deg,
-              hsla(0, 0%, 100%, 0.00) 30%,
-              rgba(0, 0, 0, 0.78) 48%,
-              rgba(255, 255, 255, 0) 50%
-            )`,
-            backgroundSize: '200% 100%',
-            animation: 'glowMove 3s linear infinite',
-            pointerEvents: 'none',
-          },
-          '@keyframes glowMove': {
-            '0%': {
-              transform: 'translateX(-100%)',
-            },
-            '100%': {
-              transform: 'translateX(10%)',
-            },
-          },
-        }}
-      />
+      {showButton && (
+        <Box>
+          <Button
+            variant="contained"
+            onClick={handleScroll}
+            sx={scrollButtonStyles}
+          >
+            <KeyboardDoubleArrowUpIcon sx={{ height: '25px', width: '25px'}} />
+          </Button>
+        </Box>
+      )}
     </>
   );
 };

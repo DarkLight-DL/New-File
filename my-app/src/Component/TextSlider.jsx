@@ -81,7 +81,7 @@ const TextSlider = () => {
             background: modeColor ?
               'linear-gradient(to left, rgba(0, 0, 0, 0), rgba(161, 141, 188, 1))' :
               'linear-gradient(to left, rgba(0, 0, 0, 0), rgba(205,192,223,1))',
-            zIndex: 5,
+            zIndex: 1,
             pointerEvents: 'none',
           }}
         />
@@ -97,7 +97,7 @@ const TextSlider = () => {
             background: modeColor ?
               'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(161, 141, 188, 1))' :
               'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(205,192,223,1))',
-            zIndex: 5,
+            zIndex: 1,
             pointerEvents: 'none',
           }}
         />
