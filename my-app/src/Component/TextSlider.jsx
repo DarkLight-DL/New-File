@@ -143,7 +143,7 @@ const TextSlider = () => {
                   lineHeight: 'fit-content',
                   verticalAlign: 'middle',
                   fontWeight: '450',
-                  textShadow: modeColor ? '3px 10px 10px black' : '3px 5px 10px rgba(203, 193, 193, 1)',
+                  textShadow: modeColor ? '3px 3px 5px black' : '3px 3px 5px rgba(203, 193, 193, 1)',
                   color: index % 2 === 0 ? modeColor ? 'white' : '#000000ff' : '#ffd700',
                   fontSize: {
                     xs: index % 2 === 0 ? 15 : 25,
