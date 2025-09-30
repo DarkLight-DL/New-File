@@ -1009,7 +1009,7 @@ const Data = () => {
                 key={web.name}
                 sx={{
                   // my: '5px',
-                  height: { xs: '310px', sm: '400px', md: '430px', lg: '410px', xl: '420px' }, //card-height
+                  height: { xs: '310px', sm: '400px', md: '430px', lg: '430px', xl: '420px' }, //card-height
                   width: { xs: '155px', sm: '34%', md: '26%', lg: '26%', xl: '385px' },
                   aspectRatio: '16/9',
                   flex: '0 0 auto',

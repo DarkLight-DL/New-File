@@ -56,7 +56,7 @@ const About = () => {
         <Box
           sx={{
             height: '70px',
-            width:{xs:'85%',sm:'90%',md:'80%', lg:'100%'},
+            width:{xs:'85%',sm:'90%',md:'80%', lg:'90%'},
             bgcolor: 'rgba(254, 254, 254, 0.12)',
             borderRadius: '10px',
             display: 'flex',

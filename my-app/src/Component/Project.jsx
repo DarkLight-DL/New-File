@@ -35,27 +35,29 @@ import Data from './Data'
 const Project = () => {
   return (
     <>
+          {/* Section Title */}
+          <Box sx={{ pt: { xs: 4, sm: 5, md: 6 }, px: { xs: 2, sm: 4, md: 6 } }}>
+            <Typography
+              variant="h3"
+              sx={{
+                background: 'linear-gradient(to right, #000, #333)',
+                backgroundClip: 'text',
+                color: 'transparent',
+                fontWeight: '600',
+                mb: 4,
+              }}
+            >
+              Project
+            </Typography>
+          </Box>
 
-      <Box sx={{ pt: { xs: '40px', sm: '40px', md: '40px', lg: '45px' } }}>
 
-          <Typography
-            variant="h2"
-            sx={{
-              bgcolor:'blue',
-              background: 'rgb(0,0,0)',
-              backgroundClip: 'text',
-              color: 'transparent',
-              fontWeight: '600',
 
-            }}
-          >
-            Project
-          </Typography>
           <Box>
             <Typography
               variant="subtitle1"
               align="center"
-              sx={{ color: 'rgb(67, 66, 66)', my:{xs: 2,sm:5 },mx:{xs:'10px',sm:'100px'},fontSize:{xs:10,sm:16,md:18}}}
+              sx={{ color: 'rgb(67, 66, 66)', my:{xs: 2,sm:5 },mx:{xs:'10px',sm:'100px'},fontSize:{xs:13,sm:16,md:18}}}
             >
               Here are some projects built with HTML, CSS, JavaScript, Bootstrap, Material-UI (MUI), and React.js.
               The backend is integrated using Axios for JSON data handling and user-friendly responsive UI design.
@@ -101,7 +103,6 @@ const Project = () => {
 
       </Box>
 
-      </Box>
 
 
     </>

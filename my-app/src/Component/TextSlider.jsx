@@ -47,6 +47,7 @@ const TextSlider = () => {
         // border: 'solid',
         // backgroundColor: 'green',
         mt: { xs: 1, sm: 2, md: 3, lg: 4 },
+        mx:1,
         mb: 4,
         overflow: 'hidden',
         whiteSpace: 'nowrap',
@@ -63,7 +64,7 @@ const TextSlider = () => {
           right: 0,
           width: '100%',
           height: { xs: 40, sm: 50, md: 55, lg: 60 },
-          transform: 'rotate(-2deg)',
+          transform: 'rotate(-1deg)',
           transformOrigin: 'center',
 
         },
@@ -113,7 +114,7 @@ const TextSlider = () => {
             // py: 1.1,
             mx: '1px',
             zIndex: 1,
-            transform: 'rotate(2deg)',
+            transform: 'rotate(1deg)',
             transformOrigin: 'center',
 
           }}
