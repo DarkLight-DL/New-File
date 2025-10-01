@@ -132,8 +132,9 @@ import { HashLink as Link } from 'react-router-hash-link';
 import ThemeContext from '../Component/ThemeContext';
 import HomeIcon from '@mui/icons-material/Home';
 import CodeIcon from '@mui/icons-material/Code';
-import PersonIcon from '@mui/icons-material/Person';
-import BuildIcon from '@mui/icons-material/Build';
+import InfoIcon from '@mui/icons-material/Info';
+import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
+
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -201,10 +202,10 @@ const Footer = () => {
               <CodeIcon fontSize="small" /> Projects
             </MUILink>
             <MUILink component={Link} to="/#about" smooth sx={linkStyle}>
-              <PersonIcon fontSize="small" /> About
+              <InfoIcon fontSize="small" /> About
             </MUILink>
             <MUILink component={Link} to="/#skills" smooth sx={linkStyle}>
-              <BuildIcon fontSize="small" /> Skills
+              <QueuePlayNextIcon fontSize="small" /> Skills
             </MUILink>
             <MUILink component={Link} to="/#contact" smooth sx={linkStyle}>
               <PermContactCalendarIcon fontSize="small" /> Contact
