@@ -1,6 +1,6 @@
 // import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 // import { Box } from '@mui/material';
-// import Nave from './Component/Nave';
+// import Nav from './Component/Nav';
 // import Home from './Component/Home';
 // import About from './Component/About';
 // import Project from './Component/Project';
@@ -14,7 +14,7 @@
 //       <ThemeProvider>
 //         <Router>
 //           <Box>
-//             <Nave />
+//             <Nav />
 //             <Routes>
 //               <Route path="/" element={<Home />} />
 //               <Route path="/about" element={<About />} />
@@ -36,7 +36,7 @@
 
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
-import Nave from './Component/Nave';
+import Nav from './Component/Nav';
 import Home from './Component/Home';
 import About from './Component/About';
 import Project from './Component/Project';
@@ -51,7 +51,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <Box>
-          <Nave />
+          <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

@@ -481,9 +481,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
-import NaveMenu from './NaveMenu';
+import NavMenu from './NavMenu';
 import ThemeContext from './ThemeContext';
-const Nave = () => {
+const Nav = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const { modeColor, handleColor } = useContext(ThemeContext);
@@ -532,51 +532,6 @@ const Nave = () => {
   }, [clickedHash, isClicking]);
 
   const isActiveHash = (hash) => hash === clickedHash;
-
-  // const getNavLinkStyle = (active) => ({
-  //   textDecoration: 'none',
-  //   color: active ? 'rgb(2, 63, 154)' : modeColor ? '#fff' : '#000',
-  //   fontWeight: 500,
-  //   marginRight: '12px',
-  //   position: 'relative',
-  //   padding: '4px',
-  //   transition: 'color 0.3s',
-  //   '&::after': {
-  //     content: '""',
-  //     position: 'absolute',
-  //     bottom: '-3px',
-  //     left: 0,
-  //     width: active ? '100%' : '0',
-  //     height: '2px',
-  //     backgroundColor: ' rgb(2, 63, 154)',
-  //     transition: 'width 0.5s ease-in-out',
-  //   },
-  //   '&:hover': {
-  //     color: ' rgb(2, 63, 154)',
-  //     '&::after': {
-  //       width: '100%',
-  //     },
-  //   },
-  // });
-
-
-  // const navBackground = {
-  //   background: 'rgba(255, 255, 255, 0.15)',
-  //   color: modeColor ? 'rgba(20, 20, 20, 0.25)' : 'rgba(255, 255, 255, 0.15)',
-  //   padding: '6px 16px',
-  //   borderRadius: '30px',
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   margin: '8px auto',
-  //   width: { xs: '60%', sm: '60%', md: '70%', lg: '70%' },
-  // };
-
-
-
-
-
-
 
   const getNavLinkStyle = (active) => ({
     textDecoration: 'none',
@@ -633,58 +588,39 @@ const Nave = () => {
     <AppBar position="fixed" elevation={0} sx={{ p: 0, bgcolor: 'transparent', top: 2 }}>
       <Container p={0}>
         <Toolbar sx={{ p: 0, justifyItems: 'center', alignContent: 'center' }}>
+
           {/* Mobile Nav Button */}
-
-          {/* <Box sx={{mr: 'auto', ml:'10px',  width: {xs:'40px',sm:'0px',md:'100px',lg:'100px'},  display: { xs: 'flex', sm: 'none' } }}>
-<Tooltip title={open ? 'Close' : 'Menu'} placement="right" arrow>
-
-            <IconButton
-              edge="start"
-              onClick={() => setOpen((prev) => !prev)}
-              sx={{ bgcolor: '#E6E6FA ', color: 'black', height: '25px', width: '25px', '&:hover': { bgcolor: '#FF6B00' } }}
-            >
-              {open ? (
-                <CloseIcon sx={{ height: '20px', width: '20px' }} />
-              ) : (
-                <MenuIcon sx={{ height: '20px', width: '20px' }} />
-              )}
-            </IconButton>
-            </Tooltip>
-
-          </Box> */}
-
-
           <Box
-  sx={{
-    mr: 'auto',
-    ml: '10px',
-    width: { xs: '40px', sm: '0px', md: '100px', lg: '100px' },
-    display: { xs: 'flex', sm: 'none' },
-  }}
->
-  <Tooltip title={open ? 'Close' : 'Menu'} placement="left" arrow>
-    <IconButton
-      edge="start"
-      onClick={() => setOpen((prev) => !prev)}
-      sx={{
-        
-        bgcolor: '#E6E6FA',
-        color: 'black',
-        height: '25px',
-        width: '25px',
-        '&:hover': {
-          bgcolor: '#FF6B00',
-        },
-      }}
-    >
-      {open ? (
-        <CloseIcon sx={{ height: '20px', width: '20px' }} />
-      ) : (
-        <MenuIcon sx={{ height: '20px', width: '20px' }} />
-      )}
-    </IconButton>
-  </Tooltip>
-</Box>
+            sx={{
+              mr: 'auto',
+              ml: '10px',
+              width: { xs: '40px', sm: '0px', md: '100px', lg: '100px' },
+              display: { xs: 'flex', sm: 'none' },
+            }}
+          >
+            <Tooltip title={open ? 'Close' : 'Menu'} placement="left" arrow>
+              <IconButton
+                edge="start"
+                onClick={() => setOpen((prev) => !prev)}
+                sx={{
+
+                  bgcolor: '#E6E6FA',
+                  color: 'black',
+                  height: '25px',
+                  width: '25px',
+                  '&:hover': {
+                    bgcolor: '#FF6B00',
+                  },
+                }}
+              >
+                {open ? (
+                  <CloseIcon sx={{ height: '20px', width: '20px' }} />
+                ) : (
+                  <MenuIcon sx={{ height: '20px', width: '20px' }} />
+                )}
+              </IconButton>
+            </Tooltip>
+          </Box>
 
 
           {/* Brand (Large screens) */}
@@ -723,8 +659,8 @@ const Nave = () => {
                 }}
                 sx={{
                   display: { xs: 'flex', sm: 'none' },
-                  textAlign:'center',
-                  gap:'4px',
+                  textAlign: 'center',
+                  gap: '4px',
                   fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
                   fontSize: { xs: '15px', sm: '17px', md: '18px', lg: '20px' },
                   fontWeight: 'bold',
@@ -732,7 +668,7 @@ const Nave = () => {
                   textDecoration: 'none',
                 }}
               >
-                Asik Ahamed<span style={{ color: 'red'}}>•</span>
+                Asik Ahamed<span style={{ color: 'red' }}>•</span>
               </MUILink>
 
               {/* Navigation Links */}
@@ -834,8 +770,8 @@ const Nave = () => {
           </Box>
 
           {/* Dark/Light Mode Toggle */}
-          <Box sx={{ ml: 'auto', width: {xs:'50px',sm:'30px',md:'110px',lg:'110px'}, justifyItems: 'flex-end'}}>
-            
+          <Box sx={{ ml: 'auto', width: { xs: '50px', sm: '30px', md: '110px', lg: '110px' }, justifyItems: 'flex-end' }}>
+
             <Box
               onClick={handleColor}
               sx={{
@@ -847,31 +783,31 @@ const Nave = () => {
                 position: 'relative',
               }}
             >
-                            <Tooltip title='Dark & Light Mode ' placement="right" arrow>
+              <Tooltip title='Dark & Light Mode ' placement="right" arrow>
 
-              <IconButton
-                sx={{
-                  // bgcolor: '#FF6B00',
-                  bgcolor: '#E6E6FA',
-                  color: 'black',
-                  height: '25px',
-                  width: '25px',
-                  position: 'absolute',
-                  top: '-5px',
-                  left: -7,
-                  transform: modeColor ? 'translateX(20px)' : 'translateX(0)',
-                  transition: 'transform 0.3s ease',
-                  '&:hover': {
-                    bgcolor: '#e65c00',
-                  },
-                }}
-              >
-                {modeColor ? (
-                  <DarkModeIcon sx={{ height: '15px', width: '15px' }} />
-                ) : (
-                  < LightModeIcon sx={{ height: '15px', width: '15px' }} />
-                )}
-              </IconButton>
+                <IconButton
+                  sx={{
+                    // bgcolor: '#FF6B00',
+                    bgcolor: '#E6E6FA',
+                    color: 'black',
+                    height: '25px',
+                    width: '25px',
+                    position: 'absolute',
+                    top: '-5px',
+                    left: -7,
+                    transform: modeColor ? 'translateX(20px)' : 'translateX(0)',
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      bgcolor: '#e65c00',
+                    },
+                  }}
+                >
+                  {modeColor ? (
+                    <DarkModeIcon sx={{ height: '15px', width: '15px' }} />
+                  ) : (
+                    < LightModeIcon sx={{ height: '15px', width: '15px' }} />
+                  )}
+                </IconButton>
               </Tooltip>
             </Box>
           </Box>
@@ -883,10 +819,10 @@ const Nave = () => {
         </Toolbar>
 
         {/* Mobile Drawer */}
-        <NaveMenu toggleDrawer={setOpen} open={open} location={location} />
+        <NavMenu toggleDrawer={setOpen} open={open} location={location} />
       </Container >
     </AppBar >
   );
 };
 
-export default Nave;
+export default Nav;
