@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Typography, Tooltip } from '@mui/material';
 import Linkus from './Linkus';
 
 import { ReactComponent as Gmail } from '../Assets/mail.svg';
 import { ReactComponent as Phone } from '../Assets/phone.svg';
 import { ReactComponent as Location } from '../Assets/location.svg';
+import ThemeContext from './ThemeContext';
 
 
 // Common icon style
@@ -45,15 +46,18 @@ const contactMethods = [
 ];
 
 const Form = () => {
+  const {modeColor}=useContext(ThemeContext)
   return (
     <Box
       sx={{
         p: 3,
         height: { lg: '360px', md: '350px', sm: 'auto', xs: '80%' },
         width: { lg: '300px', md: '280px', sm: '50%', xs: '80%' },
-        background: 'linear-gradient(135deg, #4b6cb7 0%, #182848 100%)',
+        background:modeColor ? 
+        'linear-gradient(135deg, #4b6cb7 0%, #182848 100%)':
+        'linear-gradient(135deg, #5e7abaff 0%, #182848 100%)',
         borderRadius: '16px',
-        color: 'white',
+        color: modeColor ? '#111': '#eee' ,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
@@ -73,7 +77,7 @@ const Form = () => {
         mt={2}
         mb={2}
         sx={{
-          color: '#ffffff',
+          color: modeColor ?  '#eee':'#111',
           fontWeight: 600,
           width: '100%',
           borderBottom: '2px solid rgba(255,255,255,0.3)',
@@ -95,6 +99,7 @@ const Form = () => {
               alignItems: 'center',
               borderRadius: '8px',
               transition: '0.3s',
+              color: modeColor ?  '#111':'#eee',
               cursor: 'pointer',
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -108,7 +113,7 @@ const Form = () => {
               href={href}
               sx={{
                 textDecoration: 'none',
-                color: 'inherit',
+                color: modeColor ?  '#eee':'#111',
               }}
             >
 
@@ -127,7 +132,7 @@ const Form = () => {
                                   textDecoration: 'none',
                 color: 'inherit',
                 '&:hover': {
-                  color: '#aaddff',
+                  color: modeColor ?  '#eee':'#111',
                   textDecoration: 'underline',
                 },
                   fontSize: { xs: '10px', sm: '12px' },
@@ -146,7 +151,7 @@ const Form = () => {
         <Typography
           sx={{
             mt: '10px',
-            color:'rgba(239, 238, 239, 1)',
+            color: modeColor ?  '#eee':'#111',
             borderBottom: '2px solid rgba(255,255,255,0.3)',
             pb: 1,
           }}

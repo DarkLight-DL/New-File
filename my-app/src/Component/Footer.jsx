@@ -149,13 +149,17 @@ const Footer = () => {
     alignItems: 'center',
     gap: '8px',
     color: modeColor ? '#eee' : '#111',
-    fontSize: '14px',
+    fontSize: { xs: '10px', sm: '14px' },
     transition: 'all 0.3s ease',
     '&:hover': {
-      color: 'rgb(2, 63, 154)',
+      color: modeColor ? 'rgba(15, 104, 237, 1)': 'rgb(2, 63, 154)' ,
       transform: 'scale(1.30)'
     },
   };
+
+  const iconStyle={
+        fontSize: { xs: '10px', sm: '14px' },
+  }
 
   return (
     <Box sx={{ width: '100%', mt: 10 }}>
@@ -163,10 +167,11 @@ const Footer = () => {
       <Grid
         container
         justifyContent="center"
-        textAlign="center"
-        spacing={4}
-        sx={{
 
+        spacing={2}
+        sx={{
+          pl:{xs:'30px',sm:'35px',md:'0px',lg:'0px'},
+           textAlign:{xs:'left',sm:'left',md:'center',lg:'center'},
           color: modeColor ? '#fff' : '#000',
            bgcolor: modeColor ? '#00000036' : 'rgba(255, 255, 255, 0.13)',
 
@@ -174,15 +179,12 @@ const Footer = () => {
       >
         {/* About Me */}
         <Grid item xs={12} md={4} lg={4}>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' ,fontSize: { xs: '12px', sm: '18px' }}}>
             About Me
           </Typography>
           <Typography
             variant="body2"
-            sx={{ fontSize: { xs: '13px', sm: '14px' }, maxWidth: 350, mx: 'auto',    '&:hover': {
-      color: 'rgb(2, 63, 154)',
-      transform: 'scale(1.10)'
-    }, }}
+            sx={{ fontSize: { xs: '10px', sm: '14px' }, mx: 'auto' }}
           >
             I'm Asik Ahamed, a passionate developer focused on building modern,
             fast, and accessible websites.
@@ -191,39 +193,39 @@ const Footer = () => {
 
         {/* Quick Links */}
         <Grid item xs={12} md={4} lg={4}>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' ,fontSize: { xs: '12px', sm: '18px' }}}>
             Quick Links
           </Typography>
           <Stack spacing={1} sx={{display:'inline-block'}}> 
             <MUILink component={Link} to="/#home" smooth sx={linkStyle}>
-              <HomeIcon fontSize="small" /> Home
+              <HomeIcon sx={iconStyle} /> Home
             </MUILink>
             <MUILink component={Link} to="/#project" smooth sx={linkStyle}>
-              <CodeIcon fontSize="small" /> Projects
+              <CodeIcon sx={iconStyle} /> Projects
             </MUILink>
             <MUILink component={Link} to="/#about" smooth sx={linkStyle}>
-              <InfoIcon fontSize="small" /> About
+              <InfoIcon sx={iconStyle} /> About
             </MUILink>
             <MUILink component={Link} to="/#skills" smooth sx={linkStyle}>
-              <QueuePlayNextIcon fontSize="small" /> Skills
+              <QueuePlayNextIcon sx={iconStyle} /> Skills
             </MUILink>
             <MUILink component={Link} to="/#contact" smooth sx={linkStyle}>
-              <PermContactCalendarIcon fontSize="small" /> Contact
+              <PermContactCalendarIcon sx={iconStyle} /> Contact
             </MUILink>
           </Stack>
         </Grid>
 
         {/* Contact */}
         <Grid item xs={12} md={4} lg={4}>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold',fontSize: { xs: '12px', sm: '18px' } }}>
             Contact
           </Typography>
           <Stack spacing={1}sx={{display:'inline-block'}} >
             <MUILink href="mailto:a.asikahamedm@gmail.com" sx={linkStyle}>
-              <EmailIcon fontSize="small" /> a.asikahamedm@gmail.com
+              <EmailIcon sx={iconStyle} /> a.asikahamedm@gmail.com
             </MUILink>
             <MUILink href="tel:+919500302681" sx={linkStyle}>
-              <PhoneIcon fontSize="small" /> +91 95003 02681
+              <PhoneIcon sx={iconStyle} /> +91 95003 02681
             </MUILink>
             <MUILink
               href="https://www.google.com/maps/place/Kanniyakumari"
@@ -231,7 +233,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               sx={linkStyle}
             >
-              <LocationOnIcon fontSize="small" /> Kanniyakumari, India
+              <LocationOnIcon sx={iconStyle} /> Kanniyakumari, India
             </MUILink>
           </Stack>
         </Grid>
@@ -239,11 +241,11 @@ const Footer = () => {
         
         {/* footer */}
         <Grid item xs={12} md={4} lg={4}>
-      {/* Footer Bottom */}
       <Box
         sx={{
           textAlign: 'center',
           py: 2,
+          pb:3,
         }}
       >
         <Typography
