@@ -85,7 +85,7 @@ const Form = () => {
 
       {/* Contact Methods */}
       {contactMethods.map(({ type, tooltip, Icon, href, TextShow }) => (
-        <Tooltip title={tooltip} placement="right" key={type}>
+        <Tooltip title={tooltip} placement="top" key={type}>
           <Box
             sx={{
               p: 1,
