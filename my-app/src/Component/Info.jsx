@@ -299,9 +299,9 @@ const Info = () => {
           <IconButton
             aria-label="close"
             onClick={handleClose}
-            sx={{ bgcolor:'white',position: 'absolute', top: 16, right: 16, color: 'black', zIndex: 1000,'&:hover': {bgcolor:'orange'} }}
+            sx={{border:'solid white',bgcolor:'rgba(0, 0, 0, 0.86)',position: 'absolute', top: 30, left: 40, color: 'black', zIndex: 10,'&:hover': {bgcolor:'orange'} }}
           >
-            <CloseIcon />
+            <CloseIcon sx={{color:'white'}} />
           </IconButton>
 
           <iframe

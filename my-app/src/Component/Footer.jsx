@@ -179,7 +179,7 @@ const Footer = () => {
       >
         {/* About Me */}
         <Grid item xs={12} md={4} lg={4}>
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' ,fontSize: { xs: '12px', sm: '18px' }}}>
+          <Typography variant="h6" gutterBottom sx={{mb:{xs:1,sm:2,md:4,lg:5}, fontWeight: 'bold' ,fontSize: { xs: '12px', sm: '18px' }}}>
             About Me
           </Typography>
           <Typography
