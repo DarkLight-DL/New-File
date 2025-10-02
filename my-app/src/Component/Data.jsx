@@ -358,6 +358,318 @@
 
 
 
+// import React, { useState, useContext } from 'react';
+// import {
+//   Box,
+//   Typography,
+//   CardMedia,
+//   Button,
+// } from '@mui/material';
+// import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+// import { Link as RouterLink } from 'react-router-dom';
+// import ThemeContext from './ThemeContext';
+
+// // Project Images
+// import YouTube from '../Assets/youtubeClone.png';
+// import Shopping from '../Assets/Shopping.png';
+// import Echo from '../Assets/Echo.png';
+// import Bloom from '../Assets/Bloom.png';
+// import html from '../Assets/html.jpg';
+// import Cart from '../Assets/Cart.png';
+
+
+// // Tech stack SVGs
+// import { ReactComponent as Html } from '../Assets/html.svg';
+// import { ReactComponent as Css } from '../Assets/css.svg';
+// import { ReactComponent as Js } from '../Assets/javascript.svg';
+// import { ReactComponent as Bootstrap } from '../Assets/bootstrap1.svg';
+// import { ReactComponent as Mui } from '../Assets/Mui.svg';
+// import { ReactComponent as Reactjs } from '../Assets/react1.svg';
+// import { ReactComponent as Git } from '../Assets/github2.svg';
+// import { ReactComponent as Youtube } from '../Assets/youtube.svg';
+// import { ReactComponent as Api } from '../Assets/api.svg';
+
+
+// // Project Data
+// const projects = [
+//   {
+//     name: 'YouTube',
+//     webside: 'YouTube Clone',
+//     text: 'YouTube clone built with a real-time API, features both videos and shorts. Fully responsive website.',
+//     icons: [Reactjs, Js, Mui, Youtube, Api],
+//     img: YouTube,
+//     video: '',
+//     link: '/projects',
+//     type: 'internal',
+//     button: 'View',
+//   },
+//   {
+//     name: 'Shopping',
+//     webside: 'E-Commerce',
+//     text: 'Shopping is an E-commerce website with responsive design, using API and Axios for the backend.',
+//     icons: [Reactjs, Mui, Api, Git],
+//     img: Shopping,
+//     video: '',
+//     link: 'https://darklight-dl.github.io/Shopping/',
+//     type: 'external',
+//     button: 'Visit',
+//   },
+//   {
+//     name: 'Echo',
+//     webside: 'SEO template',
+//     text: 'Echo is a modern, responsive SEO template with a minimal design like sliders and contact forms.',
+//     icons: [Html, Css, Bootstrap, Git],
+//     img: Echo,
+//     video: '',
+//     link: 'https://darklight-dl.github.io/Echo/',
+//     type: 'external',
+//     button: 'Visit',
+//   },
+//   {
+//     name: 'Bloom',
+//     webside: 'SEO template',
+//     text: 'Bloom website built using React.js, featuring a fully responsive design all devices views.',
+//     icons: [Reactjs, Mui, Git],
+//     img: Bloom,
+//     video: '',
+//     link: 'https://darklight-dl.github.io/Bloom/',
+//     type: 'external',
+//     button: 'Visit',
+//   },
+//   {
+//     name: 'Shop',
+//     webside: 'E-Commerce',
+//     text: 'Shopping web side built using DOM, with dynamic interactions. File via a JSON Full responsiveness.',
+//     icons: [Html, Css, Js, Git],
+//     img: Cart,
+//     video: '',
+//     link: 'https://darklight-dl.github.io/Cart/',
+//     type: 'external',
+//     button: 'Visit',
+//   },
+//   {
+//     name: 'HTML',
+//     webside: 'Static layout',
+//     text: 'Static website layout optimized for desktop devices, built using HTML and CSS. Design for larger screens.',
+//     icons: [Html, Css, Git],
+//     img: html,
+//     video: '',
+//     link: 'https://darklight-dl.github.io/Html/',
+//     type: 'external',
+//     button: 'Visit',
+//   },
+// ];
+
+// // Component
+// const ProjectShowcase = () => {
+//   const { modeColor } = useContext(ThemeContext);
+//   const [showAll, setShowAll] = useState(false);
+
+//   const textStyle = {
+//     color: modeColor ? '#eeeeee' : '#1a1a1a',
+//   };
+
+//   const visibleProjects = showAll ? projects : projects.slice(0, 3);
+//   const remainingProjects = projects.length - visibleProjects.length;
+
+//   return (
+//     <Box
+//       sx={{
+//         width: '100%',
+//         Height: '100vh',
+//         color: textStyle.color,
+//         backgroundImage: modeColor
+//           ? 'radial-gradient(#ffffff11 1px, transparent 1px)'
+//           : 'radial-gradient(#00000011 1px, transparent 1px)',
+//         backgroundSize: '40px 40px',
+//         py: 4,
+//       }}
+//     >
+
+// {visibleProjects.map((web, index) => (
+//   <Box
+//     key={index}
+//     sx={{
+      
+//       display: 'flex',
+//       flexDirection: { xs: 'column', md: 'row' },
+//       alignItems: 'center',
+//       justifyContent: 'center',
+//       width: '100%',
+//       border:'solid',
+//       maxHeight:'300px',
+//       aspectRatio:'16/9',
+//       gap: 4,
+//       py: 4,
+
+//     }}
+//   >
+//     {/* Image or Video Box */}
+//     <Box sx={{ width: { xs: '80%', md: '45%',aspectRatio: '16 / 9', }, position: 'relative' }}>
+//       <CardMedia
+      
+//         component="img"
+//         image={web.img}
+//         alt={`${web.name} screenshot`}
+//         sx={{
+//           aspectRatio: '16 / 9',
+//           width: '100%',
+//           borderRadius: '10px',
+//           boxShadow: '0 8px 16px rgba(0,0,0,0.6)',
+//         }}
+//       />
+//       {/* Project Title on Image */}
+//       <Typography
+//         variant="h5"
+//         sx={{
+//           position: 'absolute',
+//           bottom: 10,
+//           right: 10,
+//           color: '#fff',
+//           fontWeight: 'bold',
+//           background: 'rgba(0,0,0,0.5)',
+//           p: 1,
+//           borderRadius: 2,
+//         }}
+//       >
+//         {web.name}
+//       </Typography>
+//     </Box>
+
+//     {/* Text Content */}
+//     <Box sx={{ width: { xs: '80%', md: '45%',aspectRatio: '16 / 9', } }}>
+//       <Typography
+//         variant="h6"
+//         sx={{ fontWeight: 'bold', mb: 1, color: textStyle.color }}
+//       >
+//         <span style={{ color: '#1f07baff' }}>{web.webside}</span> Website
+//       </Typography>
+//       <Typography
+//         sx={{
+//           fontSize: '0.9rem',
+//           mb: 2,
+//           color: modeColor ? '#bbbbbb' : '#555555',
+//         }}
+//       >
+//         {web.text}
+//       </Typography>
+
+//       {/* Tech Stack Icons */}
+//       <Box sx={{ display: 'flex', gap: 0.5, ml: 1, mb: 2 }}>
+//         {web.icons.map((LibIcon, idx) => (
+//           <Box
+//             key={idx}
+//             sx={{
+//               width: 30,
+//               height: 30,
+//               borderRadius: '50%',
+//               backgroundColor: '#e0e0e0',
+//               display: 'flex',
+//               alignItems: 'center',
+//               justifyContent: 'center',
+//               border: '0.5px solid black',
+//               boxShadow: '-2px 3px 3px black',
+//               zIndex: web.icons.length - idx,
+//               mr: -1,
+//             }}
+//           >
+//             <LibIcon style={{ width: '90%', height: '90%' }} />
+//           </Box>
+//         ))}
+//       </Box>
+
+//       {/* View/Visit Button */}
+//       <Button
+//         component={web.type === 'internal' ? RouterLink : 'a'}
+//         to={web.type === 'internal' ? web.link : undefined}
+//         href={web.type === 'external' ? web.link : undefined}
+//         target={web.type === 'external' ? '_blank' : undefined}
+//         rel="noopener noreferrer"
+//         sx={{
+//           mt: 2,
+//           px: 3,
+//           py: 1,
+//           borderRadius: 2,
+//           textTransform: 'none',
+//           fontWeight: 400,
+//           color: 'white',
+//           background:
+//             'linear-gradient(90deg, rgb(56, 57, 57) 21%, rgb(26, 168, 18) 84%)',
+//           '&:hover': {
+//             fontWeight: 450,
+//             background:
+//               'linear-gradient(90deg, rgb(76, 87, 180) 21%, rgb(76, 68, 129) 84%)',
+//             color: 'black',
+//           },
+//         }}
+//       >
+//         {web.button}
+//         <OpenInNewIcon sx={{ ml: 1, fontSize: 'small' }} />
+//       </Button>
+//     </Box>
+    
+//   </Box>
+// ))}
+
+//       {/* Show More / Show Less Button */}
+
+//  <Box sx={{ textAlign: 'center', py: 4 }}>
+//     <Button
+//       variant="contained"
+//       onClick={() => setShowAll(!showAll)}
+//       sx={{
+//         px: 6,
+//         py: 1,
+//         fontWeight: 600,
+//         borderRadius: 2,
+//         background: 'linear-gradient(to right, #444, #1aa812)',
+//         '&:hover': {
+//           background: 'linear-gradient(to right, #4c57b4, #4c4481)',
+//           color: 'white',
+//         },
+//       }}
+//     >
+//       {showAll
+//         ? 'Close'
+//         : `Show (${remainingProjects})`}
+//     </Button>
+//   </Box>
+//     </Box>
+//   );
+// };
+
+// export default ProjectShowcase;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useContext } from 'react';
 import {
   Box,
@@ -368,6 +680,7 @@ import {
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Link as RouterLink } from 'react-router-dom';
 import ThemeContext from './ThemeContext';
+
 
 // Project Images
 import YouTube from '../Assets/youtubeClone.png';
@@ -388,7 +701,6 @@ import { ReactComponent as Reactjs } from '../Assets/react1.svg';
 import { ReactComponent as Git } from '../Assets/github2.svg';
 import { ReactComponent as Youtube } from '../Assets/youtube.svg';
 import { ReactComponent as Api } from '../Assets/api.svg';
-
 
 // Project Data
 const projects = [
@@ -460,7 +772,6 @@ const projects = [
   },
 ];
 
-// Component
 const ProjectShowcase = () => {
   const { modeColor } = useContext(ThemeContext);
   const [showAll, setShowAll] = useState(false);
@@ -485,171 +796,156 @@ const ProjectShowcase = () => {
         py: 4,
       }}
     >
-
-{visibleProjects.map((web, index) => (
-  <Box
-    key={index}
-    sx={{
-      display: 'flex',
-      flexDirection: { xs: 'column', md: 'row' },
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      gap: 4,
-      py: 4,
-      px: 2,
-    }}
-  >
-    {/* Image or Video Box */}
-    <Box sx={{ width: { xs: '90%', md: '45%' }, position: 'relative' }}>
-      <CardMedia
-        component="img"
-        image={web.img}
-        alt={`${web.name} screenshot`}
-        sx={{
-          width: '100%',
-          borderRadius: '10px',
-          boxShadow: '0 8px 16px rgba(0,0,0,0.6)',
-        }}
-      />
-      {/* Project Title on Image */}
-      <Typography
-        variant="h5"
-        sx={{
-          position: 'absolute',
-          bottom: 10,
-          right: 10,
-          color: '#fff',
-          fontWeight: 'bold',
-          background: 'rgba(0,0,0,0.5)',
-          p: 1,
-          borderRadius: 2,
-        }}
-      >
-        {web.name}
-      </Typography>
-    </Box>
-
-    {/* Text Content */}
-    <Box sx={{ width: { xs: '90%', md: '45%' } }}>
-      <Typography
-        variant="h6"
-        sx={{ fontWeight: 'bold', mb: 1, color: textStyle.color }}
-      >
-        <span style={{ color: '#1f07baff' }}>{web.webside}</span> Website
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: '0.9rem',
-          mb: 2,
-          color: modeColor ? '#bbbbbb' : '#555555',
-        }}
-      >
-        {web.text}
-      </Typography>
-
-      {/* Tech Stack Icons */}
-      <Box sx={{ display: 'flex', gap: 0.5, ml: 1, mb: 2 }}>
-        {web.icons.map((LibIcon, idx) => (
+      {visibleProjects.map((web, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            gap: 4,
+            py: 4,
+          }}
+        >
+          {/* Image Box with aspect ratio */}
           <Box
-            key={idx}
             sx={{
-              width: 30,
-              height: 30,
-              borderRadius: '50%',
-              backgroundColor: '#e0e0e0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '0.5px solid black',
-              boxShadow: '-2px 3px 3px black',
-              zIndex: web.icons.length - idx,
-              mr: -1,
+              width: { xs: '90%', md: '45%' },
+              position: 'relative',
+              aspectRatio: '16 / 9',
+              borderRadius: 2,
+              overflow: 'hidden',
+              boxShadow: '0 8px 16px rgba(0,0,0,0.6)',
             }}
           >
-            <LibIcon style={{ width: '90%', height: '90%' }} />
+            <CardMedia
+              component="img"
+              image={web.img}
+              alt={`${web.name} screenshot`}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+            {/* Project Title on Image */}
+            <Typography
+              variant="h5"
+              sx={{
+                position: 'absolute',
+                bottom: 10,
+                right: 10,
+                color: '#fff',
+                fontWeight: 'bold',
+                background: 'rgba(0,0,0,0.5)',
+                p: 1,
+                borderRadius: 2,
+                zIndex: 10,
+              }}
+            >
+              {web.name}
+            </Typography>
           </Box>
-        ))}
-      </Box>
 
-      {/* View/Visit Button */}
-      <Button
-        component={web.type === 'internal' ? RouterLink : 'a'}
-        to={web.type === 'internal' ? web.link : undefined}
-        href={web.type === 'external' ? web.link : undefined}
-        target={web.type === 'external' ? '_blank' : undefined}
-        rel="noopener noreferrer"
-        sx={{
-          mt: 2,
-          px: 3,
-          py: 1,
-          borderRadius: 2,
-          textTransform: 'none',
-          fontWeight: 400,
-          color: 'white',
-          background:
-            'linear-gradient(90deg, rgb(56, 57, 57) 21%, rgb(26, 168, 18) 84%)',
-          '&:hover': {
-            fontWeight: 450,
-            background:
-              'linear-gradient(90deg, rgb(76, 87, 180) 21%, rgb(76, 68, 129) 84%)',
-            color: 'black',
-          },
-        }}
-      >
-        {web.button}
-        <OpenInNewIcon sx={{ ml: 1, fontSize: 'small' }} />
-      </Button>
-    </Box>
-  </Box>
-))}
+          {/* Text Content Box */}
+          <Box sx={{ width: { xs: '90%', md: '45%' } }}>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 'bold', mb: 1, color: textStyle.color }}
+            >
+              <span style={{ color: '#1f07baff' }}>{web.webside}</span> Website
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: '0.9rem',
+                mb: 2,
+                color: modeColor ? '#bbbbbb' : '#555555',
+              }}
+            >
+              {web.text}
+            </Typography>
+
+            {/* Tech Stack Icons */}
+            <Box sx={{ display: 'flex', gap: 0.5, ml: 1, mb: 2 }}>
+              {web.icons.map((LibIcon, idx) => (
+                <Box
+                  key={idx}
+                  sx={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: '50%',
+                    backgroundColor: '#e0e0e0',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '0.5px solid black',
+                    boxShadow: '-2px 3px 3px black',
+                    zIndex: web.icons.length - idx,
+                    mr: -1,
+                  }}
+                >
+                  <LibIcon style={{ width: '90%', height: '90%' }} />
+                </Box>
+              ))}
+            </Box>
+
+            {/* View/Visit Button */}
+            <Button
+              component={web.type === 'internal' ? RouterLink : 'a'}
+              to={web.type === 'internal' ? web.link : undefined}
+              href={web.type === 'external' ? web.link : undefined}
+              target={web.type === 'external' ? '_blank' : undefined}
+              rel="noopener noreferrer"
+              sx={{
+                mt: 2,
+                px: 3,
+                py: 1,
+                borderRadius: 2,
+                textTransform: 'none',
+                fontWeight: 400,
+                color: 'white',
+                background:
+                  'linear-gradient(90deg, rgb(56, 57, 57) 21%, rgb(26, 168, 18) 84%)',
+                '&:hover': {
+                  fontWeight: 450,
+                  background:
+                    'linear-gradient(90deg, rgb(76, 87, 180) 21%, rgb(76, 68, 129) 84%)',
+                  color: 'black',
+                },
+              }}
+            >
+              {web.button}
+              <OpenInNewIcon sx={{ ml: 1, fontSize: 'small' }} />
+            </Button>
+          </Box>
+        </Box>
+      ))}
 
       {/* Show More / Show Less Button */}
-
- <Box sx={{ textAlign: 'center', py: 4 }}>
-    <Button
-      variant="contained"
-      onClick={() => setShowAll(!showAll)}
-      sx={{
-        px: 6,
-        py: 1,
-        fontWeight: 600,
-        borderRadius: 2,
-        background: 'linear-gradient(to right, #444, #1aa812)',
-        '&:hover': {
-          background: 'linear-gradient(to right, #4c57b4, #4c4481)',
-          color: 'white',
-        },
-      }}
-    >
-      {showAll
-        ? 'Close'
-        : `Show (${remainingProjects})`}
-    </Button>
-  </Box>
+      <Box sx={{ textAlign: 'center', py: 4 }}>
+        <Button
+          variant="contained"
+          onClick={() => setShowAll(!showAll)}
+          sx={{
+            px: 6,
+            py: 1,
+            fontWeight: 600,
+            borderRadius: 2,
+            background: 'linear-gradient(to right, #444, #1aa812)',
+            '&:hover': {
+              background: 'linear-gradient(to right, #4c57b4, #4c4481)',
+              color: 'white',
+            },
+          }}
+        >
+          {showAll ? 'Close' : `Show (${remainingProjects})`}
+        </Button>
+      </Box>
     </Box>
   );
 };
 
 export default ProjectShowcase;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
