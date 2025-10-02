@@ -642,7 +642,7 @@ const Nav = () => {
               textDecoration: 'none',
             }}
           >
-            Asik Ahamed<span style={{ color: 'red', marginLeft: '4px' }}>•</span>
+            Asik Ahamed<span style={{ color: 'red', marginLeft: '4px' }}>• .</span>
           </MUILink>
 
           {/* Nav Links */}
@@ -668,7 +668,7 @@ const Nav = () => {
                   textDecoration: 'none',
                 }}
               >
-                Asik Ahamed<span style={{ color: 'red' }}>•</span>
+                Asik Ahamed<span style={{ color: 'red' }}>• •°.</span>
               </MUILink>
 
               {/* Navigation Links */}
