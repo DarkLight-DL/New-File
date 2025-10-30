@@ -490,7 +490,7 @@
 //   <Box
 //     key={index}
 //     sx={{
-      
+
 //       display: 'flex',
 //       flexDirection: { xs: 'column', md: 'row' },
 //       alignItems: 'center',
@@ -507,7 +507,7 @@
 //     {/* Image or Video Box */}
 //     <Box sx={{ width: { xs: '80%', md: '45%',aspectRatio: '16 / 9', }, position: 'relative' }}>
 //       <CardMedia
-      
+
 //         component="img"
 //         image={web.img}
 //         alt={`${web.name} screenshot`}
@@ -607,7 +607,7 @@
 //         <OpenInNewIcon sx={{ ml: 1, fontSize: 'small' }} />
 //       </Button>
 //     </Box>
-    
+
 //   </Box>
 // ))}
 
@@ -678,6 +678,10 @@ import {
   Button,
 } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+
 import { Link as RouterLink } from 'react-router-dom';
 import ThemeContext from './ThemeContext';
 
@@ -701,6 +705,7 @@ import { ReactComponent as Reactjs } from '../Assets/react1.svg';
 import { ReactComponent as Git } from '../Assets/github2.svg';
 import { ReactComponent as Youtube } from '../Assets/youtube.svg';
 import { ReactComponent as Api } from '../Assets/api.svg';
+
 
 // Project Data
 const projects = [
@@ -728,7 +733,7 @@ const projects = [
   },
   {
     name: 'Echo',
-    webside: 'SEO template',
+    webside: 'Echo SEO template',
     text: 'Echo is a modern, responsive SEO template with a minimal design like sliders and contact forms.',
     icons: [Html, Css, Bootstrap, Git],
     img: Echo,
@@ -739,7 +744,7 @@ const projects = [
   },
   {
     name: 'Bloom',
-    webside: 'SEO template',
+    webside: 'Bloom template',
     text: 'Bloom website built using React.js, featuring a fully responsive design all devices views.',
     icons: [Reactjs, Mui, Git],
     img: Bloom,
@@ -786,6 +791,8 @@ const ProjectShowcase = () => {
   return (
     <Box
       sx={{
+        justifyItems: 'center',
+        alignContent: 'center',
         width: '100%',
         minHeight: '100vh',
         color: textStyle.color,
@@ -804,7 +811,7 @@ const ProjectShowcase = () => {
             flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'center',
             justifyContent: 'center',
-            width: '100%',
+            width: { xs: '100%', sm: '100%', md: '90%' },
             gap: 4,
             py: 4,
           }}
@@ -824,6 +831,7 @@ const ProjectShowcase = () => {
               component="img"
               image={web.img}
               alt={`${web.name} screenshot`}
+              loading="lazy"
               sx={{
                 width: '100%',
                 height: '100%',
@@ -851,25 +859,33 @@ const ProjectShowcase = () => {
           </Box>
 
           {/* Text Content Box */}
-          <Box sx={{ width: { xs: '90%', md: '45%' } }}>
+          <Box sx={{
+            width: { xs: '85%', md: '45%' },
+            position: 'relative',
+            aspectRatio: '18 / 9',
+            borderRadius: 2,
+            border: '5px solid rgba(0, 0, 0, 0.05)',
+            p: 2,
+          }}>
             <Typography
               variant="h6"
               sx={{ fontWeight: 'bold', mb: 1, color: textStyle.color }}
             >
-              <span style={{ color: '#1f07baff' }}>{web.webside}</span> Website
+              <span style={{ color: '#1f07baff' }}>{web.webside}</span>
+              {/* Website */}
             </Typography>
             <Typography
               sx={{
                 fontSize: '0.9rem',
                 mb: 2,
-                color: modeColor ? '#bbbbbb' : '#555555',
+                color: modeColor ? '#ffffffff' : '#3a3a3aff',
               }}
             >
               {web.text}
             </Typography>
 
             {/* Tech Stack Icons */}
-            <Box sx={{ display: 'flex', gap: 0.5, ml: 1, mb: 2 }}>
+            <Box sx={{ display: 'flex', gap: 0.5, ml: 0, mb: 2 }}>
               {web.icons.map((LibIcon, idx) => (
                 <Box
                   key={idx}
@@ -882,7 +898,9 @@ const ProjectShowcase = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     border: '0.5px solid black',
-                    boxShadow: '-2px 3px 3px black',
+                    // boxShadow: '1px 5px 5px black',
+                    boxShadow: modeColor ? '3px 3px 5px rgba(255, 255, 255, 0.58)': '1px 5px 5px black',
+
                     zIndex: web.icons.length - idx,
                     mr: -1,
                   }}
@@ -900,13 +918,15 @@ const ProjectShowcase = () => {
               target={web.type === 'external' ? '_blank' : undefined}
               rel="noopener noreferrer"
               sx={{
-                mt: 2,
-                px: 3,
-                py: 1,
+                px: 2,
+                bottom: 10,
+                position: 'absolute',
                 borderRadius: 2,
                 textTransform: 'none',
                 fontWeight: 400,
                 color: 'white',
+                boxShadow: '0px 3px 10px black',
+
                 background:
                   'linear-gradient(90deg, rgb(56, 57, 57) 21%, rgb(26, 168, 18) 84%)',
                 '&:hover': {
@@ -925,23 +945,36 @@ const ProjectShowcase = () => {
       ))}
 
       {/* Show More / Show Less Button */}
-      <Box sx={{ textAlign: 'center', py: 4 }}>
+      <Box sx={{ textAlign: 'center', mb: 4, position: 'relative' }}>
         <Button
           variant="contained"
           onClick={() => setShowAll(!showAll)}
           sx={{
-            px: 6,
+            px: 2,
             py: 1,
+            paddingRight: '30px',
             fontWeight: 600,
             borderRadius: 2,
+            boxShadow: '0px 1px 10px black',
             background: 'linear-gradient(to right, #444, #1aa812)',
             '&:hover': {
               background: 'linear-gradient(to right, #4c57b4, #4c4481)',
+              boxShadow: '0px 3px 10px black',
               color: 'white',
             },
           }}
         >
-          {showAll ? 'Close' : `Show (${remainingProjects})`}
+          {/* {showAll ? 'Close' : `Show (${remainingProjects})`} */}
+
+          {showAll ? (
+            <>
+              Close <ExpandLessIcon fontSize="small" sx={{ position: 'absolute', right: 5, fontSize: '25px' }} />
+            </>
+          ) : (
+            <>
+              Show ({remainingProjects}) <ExpandMoreIcon fontSize="small" sx={{ position: 'absolute', right: 5, fontSize: '25px' }} />
+            </>
+          )}
         </Button>
       </Box>
     </Box>

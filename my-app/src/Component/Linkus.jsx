@@ -62,7 +62,7 @@ const Linkus = () => {
               aria-label={aria}
               sx={{ minWidth: 0, padding: 1}}
             >
-              <img src={icon} alt={alt} height="24px" style={style} />
+              <img src={icon} alt={alt} loading="lazy" height="24px" style={style} />
             </Button>
           </Box>
         </Tooltip>

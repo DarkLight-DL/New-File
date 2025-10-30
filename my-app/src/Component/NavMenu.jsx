@@ -4,10 +4,10 @@ import { Box, Stack } from '@mui/material';
 
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
-import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
+// import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
 import CodeIcon from '@mui/icons-material/Code';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-
+import ExtensionIcon from '@mui/icons-material/Extension';
 import { styled } from '@mui/material/styles';
 import ThemeContext from '../Component/ThemeContext';
 
@@ -162,7 +162,7 @@ const NaveMenu = ({ toggleDrawer, open, location }) => {
             aria-current={isActiveHash('#skills') ? 'page' : undefined}
             scroll={smoothScroll}
           >
-            <QueuePlayNextIcon />
+            <ExtensionIcon />
             Skills
           </StyledDrawerButton>
 

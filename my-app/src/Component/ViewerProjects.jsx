@@ -20,6 +20,7 @@ const YouTubeCloneDetails = () => {
         component="img"
         src={YouTubeImg}
         alt="YouTube Clone"
+        loading="lazy"
         sx={{
           width: '100%',
           maxHeight: 400,

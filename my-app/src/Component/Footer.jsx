@@ -133,8 +133,7 @@ import ThemeContext from '../Component/ThemeContext';
 import HomeIcon from '@mui/icons-material/Home';
 import CodeIcon from '@mui/icons-material/Code';
 import InfoIcon from '@mui/icons-material/Info';
-import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
-
+import ExtensionIcon from '@mui/icons-material/Extension';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -207,7 +206,7 @@ const Footer = () => {
               <InfoIcon sx={iconStyle} /> About
             </MUILink>
             <MUILink component={Link} to="/#skills" smooth sx={linkStyle}>
-              <QueuePlayNextIcon sx={iconStyle} /> Skills
+              <ExtensionIcon sx={iconStyle} /> Skills
             </MUILink>
             <MUILink component={Link} to="/#contact" smooth sx={linkStyle}>
               <PermContactCalendarIcon sx={iconStyle} /> Contact

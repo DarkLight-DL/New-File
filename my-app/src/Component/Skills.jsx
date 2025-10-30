@@ -130,7 +130,8 @@ const Skills = () => {
         </Grid>
 
         <Grid item xs={12} md={8} >
-          <Skills1 />
+          <Skills1 /> 
+          {/* progress bar */}
         </Grid>
       </Grid>
       {/* <Box height='20vh' /> */}

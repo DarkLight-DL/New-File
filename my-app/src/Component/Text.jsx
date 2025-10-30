@@ -5,7 +5,13 @@ const Text = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [triggerAnimation, setTriggerAnimation] = useState(false);
 
-  const texts = ['Frontend Developer', 'Backend Developer', 'React Js Developer', 'MERN Stack Developer'];
+  const texts = [
+    'Frontend Developer',
+    'Backend Developer',
+    'React Js Developer',
+    'MERN Stack Developer',
+    'Java Developer',
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,18 +26,17 @@ const Text = () => {
   }, [texts.length]);
 
 
-  const textStyle = {
-    textAlign: 'center',
-    alignContent: 'center',
-    fontSize: { md: '2rem', sm: '2rem', xs: '1.3rem' },
-    fontWeight: '600',
-    color: 'rgb(88, 57, 35)',
-    borderRadius: 'solid'
-
-  }
+  // const textStyle = {
+  //   textAlign: 'center',
+  //   alignContent: 'center',
+  //   fontSize: { md: '2rem', sm: '2rem', xs: '1.3rem' },
+  //   fontWeight: '600',
+  //   color: 'rgb(88, 57, 35)',
+  //   borderRadius: 'solid'
+  // }
 
   const textStyle1 = {
-    fontSize: { md: '2rem', sm: '2rem', xs: '1.3rem' },
+    fontSize: { md: '2rem', sm: '2rem', xs: '1.5rem' },
     fontWeight: '600',
     textAlign: 'center',
     height: '50px',
@@ -61,10 +66,10 @@ const Text = () => {
       }}>
 
 
-        <Box sx={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center',alignItems:'center', gap:1,ml:{sm:'0px',md:'auto',lg:'auto'} }}>
-          <Typography sx={textStyle}>
+        <Box sx={{ height: '100%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1, ml: { sm: '0px', md: 'auto', lg: 'auto' } }}>
+          {/* <Typography sx={textStyle}>
             i'm
-          </Typography>
+          </Typography> */}
           <Typography sx={textStyle1}> {texts[currentIndex]}</Typography>
         </Box>
       </Box>
