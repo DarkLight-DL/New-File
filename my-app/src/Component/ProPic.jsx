@@ -59,11 +59,14 @@
 
 
 
-import React from 'react';
+import React
+// , { useState } 
+from 'react';
 import { Box } from '@mui/material';
 import skill from '../Assets/skill.jpg';
 
 const ProPic = () => {
+  // const [loaded, setLoaded] = useState(false);
 
   return (
     <Box
@@ -83,6 +86,7 @@ const ProPic = () => {
           src={skill}
           alt="Frontend developer profile picture"
           loading="lazy"
+          // onLoad={() => setLoaded(true)}
           sx={{
             aspectRatio: '5 / 5',
             height: 'auto',
@@ -97,6 +101,7 @@ const ProPic = () => {
             borderRadius: '5%',
             display: 'block',
             mx: 'auto',
+            // opacity: loaded ? 1 : 0,
             transition: 'opacity 1s ease-in-out',
           }}
         />

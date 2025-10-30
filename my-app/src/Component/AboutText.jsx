@@ -4,7 +4,7 @@ import Frontend from '../Assets/frontend.png';
 
 const Points = [
   {
-    text: "I am a Frontend Developer who loves building websites that are interactive and easy to use. I focus on writing clean code and creating beautiful designs that help turn ideas into reality. I'm always eager to learn and improve my skills.",
+    text: "Hi I'm Asik Ahamed, a Full Stack Developer who loves building websites that are interactive and easy to use. I focus on writing clean code and creating beautiful designs that help turn ideas into reality. I'm always eager to learn and improve my skills.",
     pic: Frontend,
   },
   {

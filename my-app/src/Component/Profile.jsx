@@ -56,11 +56,15 @@
 
 
 
-import React from 'react';
+import React
+  // , { useState }
+  from 'react';
 import { Box } from '@mui/material';
 import pic from '../Assets/pic.jpg';
 
 const Profile = () => {
+  // const [loaded, setLoaded] = useState(false);
+
   return (
     <Box
       component="section"
@@ -79,6 +83,7 @@ const Profile = () => {
           src={pic}
           alt="Frontend developer profile picture"
           loading="lazy"
+          // onLoad={() => setLoaded(true)}
           sx={{
             boxShadow: '0 0 20px 5px rgba(0, 123, 255, 0.6)',
             aspectRatio: '5 / 5',
@@ -94,6 +99,7 @@ const Profile = () => {
             borderRadius: '5%',
             display: 'block',
             mx: 'auto',
+            // opacity: loaded ? 1 : 0,
             transition: 'opacity 1s ease-in-out',
           }}
         />

@@ -185,8 +185,8 @@ const Footer = () => {
             variant="body2"
             sx={{ fontSize: { xs: '10px', sm: '14px' }, mx: 'auto' }}
           >
-            I'm Asik Ahamed, a passionate developer focused on building modern,
-            fast, and accessible websites.
+            Hi I'm Asik Ahamed, a Full Stack Developer focused on building modern,
+            fast websites bulder, details in accessible with style. 
           </Typography>
         </Grid>
 
