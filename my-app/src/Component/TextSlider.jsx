@@ -4,11 +4,12 @@ import ThemeContext from './ThemeContext';
 
 // Text items to scroll
 const texts = [
-  'Frontend Developer', '⁕',
-  'Backend Developer', '⁕',
-  'React Js Developer', '⁕',
-  'MERN Stack Developer', '⁕'
+  'Full Stack Developer', '⁕',
+  'React.js Developer', '⁕',
+  'MERN Stack Developer', '⁕',
+  'Python & Django Developer', '⁕'
 ];
+
 
 const keyframesStyle = `
   @keyframes slide {
@@ -47,7 +48,7 @@ const TextSlider = () => {
         // border: 'solid',
         // backgroundColor: 'green',
         mt: { xs: 1, sm: 2, md: 3, lg: 4 },
-        mx:1,
+        mx: 1,
         mb: 4,
         overflow: 'hidden',
         whiteSpace: 'nowrap',
@@ -139,7 +140,7 @@ const TextSlider = () => {
                 component="span"
                 sx={{
                   display: 'flex',
-                  mx: 5,
+                  mx: 4,
                   height: 'fit-content',
                   lineHeight: 'fit-content',
                   verticalAlign: 'middle',

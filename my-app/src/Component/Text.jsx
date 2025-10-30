@@ -6,11 +6,10 @@ const Text = () => {
   const [triggerAnimation, setTriggerAnimation] = useState(false);
 
   const texts = [
-    'Frontend Developer',
-    'Backend Developer',
-    'React Js Developer',
+    'Full Stack Developer',
+    'React.js Developer',
     'MERN Stack Developer',
-    'Java Developer',
+    'Python & Django Developer'
   ];
 
   useEffect(() => {
