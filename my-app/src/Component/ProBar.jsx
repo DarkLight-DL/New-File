@@ -199,6 +199,8 @@ import { ReactComponent as Express } from '../Assets/express.svg';
 import { ReactComponent as Django } from '../Assets/django.svg';
 import { ReactComponent as Python } from '../Assets/python.svg';
 import { ReactComponent as Nodejs } from '../Assets/nodejs.svg';
+import { ReactComponent as NextJs } from '../Assets/nextjs.svg';
+import { ReactComponent as TailwindCss } from '../Assets/tailwindcss.svg';
 
 const iconStyle = { height: 35, width: 52 };
 
@@ -206,8 +208,10 @@ const datas = [
   { name: 'HTML & CSS', svg: <Html style={iconStyle} />, progress: 85 },
   { name: 'JavaScript', svg: <Js style={iconStyle} />, progress: 70 },
   { name: 'Bootstrap', svg: <Bootstrap style={iconStyle} />, progress: 60 },
-  { name: 'Material UI', svg: <Mui style={iconStyle} />, progress: 75 },
-  { name: 'React JS', svg: <Reactjs style={iconStyle} />, progress: 80 },
+  { name: 'Material UI', svg: <Mui style={iconStyle} />, progress: 85 },
+  { name: 'TailwindCss', svg: <TailwindCss style={iconStyle} />, progress: 85 },
+  { name: 'React JS', svg: <Reactjs style={iconStyle} />, progress: 85 },
+  { name: 'Next.Js', svg: <NextJs style={iconStyle} />, progress: 75 },
   { name: 'GitHub', svg: <Git style={iconStyle} />, progress: 77 },
   { name: 'Mongodb', svg: <Mongodb style={iconStyle} />, progress: 90 },
   { name: 'Nodejs', svg: <Nodejs style={iconStyle} />, progress: 50 },

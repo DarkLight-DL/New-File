@@ -1,35 +1,3 @@
-// import { Grid } from '@mui/material'
-// import React from 'react'
-// import Info from './Info'
-// import Profile from './Profile'
-
-// const Hero = () => {
-//     return (
-//         <>
-//             <Grid container sx={{ py: '0px', pt: { xs: '60px', sm: '10px', md: '80px', lg: '100px' } }}>
-//                 <Info />
-
-//                     <Profile />
-
-
-
-
-
-
-
-//             </Grid>
-
-//         </>
-//     )
-// }
-
-// export default Hero
-
-
-
-
-
-
 import React from 'react';
 import { Grid } from '@mui/material';
 import Info from './Info';

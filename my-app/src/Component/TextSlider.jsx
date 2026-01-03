@@ -7,6 +7,7 @@ const texts = [
   'Full Stack Developer', '⁕',
   'React.js Developer', '⁕',
   'MERN Stack Developer', '⁕',
+  'NEXT.js Developer', '⁕',
   'Python & Django Developer', '⁕'
 ];
 
